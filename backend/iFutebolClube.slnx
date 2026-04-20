@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/iFutebolClube.Api/iFutebolClube.Api.csproj" />
+    <Project Path="src/iFutebolClube.Application/iFutebolClube.Application.csproj" />
+    <Project Path="src/iFutebolClube.Domain/iFutebolClube.Domain.csproj" />
+    <Project Path="src/iFutebolClube.Infrastructure/iFutebolClube.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/iFutebolClube.Api.Tests/iFutebolClube.Api.Tests.csproj" />
+    <Project Path="tests/iFutebolClube.Application.Tests/iFutebolClube.Application.Tests.csproj" />
+    <Project Path="tests/iFutebolClube.Domain.Tests/iFutebolClube.Domain.Tests.csproj" />
+  </Folder>
+</Solution>

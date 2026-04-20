@@ -1,0 +1,27 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+## dotnet publish
+publish/
+out/
+
+## EF migrations snapshots (keep migrations, ignore build artifacts)
+*.db
+*.sqlite
+
+## Secrets
+appsettings.Development.json
+appsettings.Local.json
+
+## OS
+.DS_Store
+Thumbs.db
+
+## Node (frontend)
+node_modules/
+dist/
+.next/
