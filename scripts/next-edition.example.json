@@ -1,0 +1,11 @@
+{
+  "year": 2030,
+  "label": "Copa 2030",
+  "hosts": ["Marrocos", "Espanha", "Portugal"],
+  "startDate": "2030-06-08",
+  "endDate": "2030-07-07",
+  "teams": 48,
+  "stadiums": [
+    { "name": "Nome do estádio", "city": "Cidade", "country": "País", "capacity": 80000 }
+  ]
+}

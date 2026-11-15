@@ -1,0 +1,117 @@
+.wc-map.leaflet-container {
+  background: #0B1220;
+  font-family: inherit;
+  outline: none;
+}
+.wc-marker {
+  background: none;
+  border: 0;
+}
+.wc-ball {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  cursor: pointer;
+}
+.wc-ball:hover,
+.wc-ball:focus-visible {
+  transform: translate(-50%, -50%) scale(1.25);
+}
+.wc-ball:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 1px;
+}
+/* O marcador sob o mouse ou com foco passa à frente dos vizinhos. */
+.wc-marker:hover,
+.wc-marker:focus-within {
+  z-index: 10000 !important;
+}
+
+/* Cartão com o país e os anos; o espaço transparente evita que feche no caminho do mouse. */
+.wc-card-wrap {
+  position: absolute;
+  z-index: 1000;
+  transform: translate(-50%, -100%);
+  padding-bottom: 12px;
+}
+.wc-card-wrap--below {
+  transform: translate(-50%, 0);
+  padding-bottom: 0;
+  padding-top: 12px;
+}
+.wc-card {
+  position: relative;
+  min-width: 110px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(88, 8, 8, 0.96);
+  color: #fff;
+  text-align: center;
+  font: 500 13px/1.5 ui-sans-serif, system-ui, sans-serif;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+.wc-card::after {
+  content: '';
+  position: absolute;
+  left: calc(50% + var(--arrow-x, 0px));
+  bottom: -6px;
+  width: 12px;
+  height: 12px;
+  background: rgba(88, 8, 8, 0.96);
+  transform: translateX(-50%) rotate(45deg);
+}
+.wc-card-wrap--below .wc-card::after {
+  bottom: auto;
+  top: -6px;
+}
+.wc-card-title {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 2px;
+  color: #fff;
+}
+.wc-year {
+  display: block;
+  width: 100%;
+  padding: 1px 6px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #fff;
+  font: 700 14px/1.5 ui-sans-serif, system-ui, sans-serif;
+  cursor: pointer;
+}
+.wc-year:hover,
+.wc-year:focus-visible {
+  background: rgba(255, 255, 255, 0.18);
+  text-decoration: underline;
+}
+.wc-year:focus-visible {
+  outline: 2px solid #fff;
+}
+.wc-year--off {
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+  cursor: default;
+}
+.wc-year--off:hover {
+  background: transparent;
+  text-decoration: none;
+}
+.wc-year small {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.55);
+}

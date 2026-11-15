@@ -1,0 +1,253 @@
+export interface Player {
+  name: string;
+  number: number;
+  position: string;
+  age: number;
+  caps: number;
+  goals: number;
+  clubs: string[];
+  photo: string;
+}
+
+function photo(name: string): string {
+  return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=1E293B&color=D4AF37&size=256&font-size=0.4&bold=true`;
+}
+
+const p = (name: string, num: number, pos: string, age: number, caps: number, goals: number, clubs: string[]): Player => ({
+  name, number: num, position: pos, age, caps, goals, clubs, photo: photo(name),
+});
+
+const data: Record<string, Player[]> = {
+  USA: [
+    p("Matt Turner", 1, "Goleiro", 32, 45, 0, ["New England Revolution", "Arsenal", "Nottingham Forest"]),
+    p("Sergiño Dest", 2, "Lateral Direito", 25, 35, 3, ["Ajax", "Barcelona", "AC Milan", "PSV"]),
+    p("Chris Richards", 4, "Zagueiro", 25, 20, 1, ["Bayern Munich", "Crystal Palace"]),
+    p("Antonee Robinson", 5, "Lateral Esquerdo", 28, 50, 3, ["Wigan Athletic", "Fulham"]),
+    p("Weston McKennie", 8, "Meio-campista", 27, 55, 11, ["Schalke 04", "Juventus", "Leeds United"]),
+    p("Christian Pulisic", 10, "Ponta Direita", 27, 75, 30, ["Borussia Dortmund", "Chelsea", "AC Milan"]),
+    p("Tim Weah", 11, "Ponta Esquerda", 26, 45, 8, ["PSG", "Celtic", "Lille", "Juventus"]),
+    p("Tyler Adams", 14, "Volante", 27, 40, 1, ["RB Leipzig", "Leeds United", "Bournemouth"]),
+    p("Johnny Cardoso", 6, "Meio-campista", 24, 25, 2, ["Internacional", "Real Betis"]),
+    p("Ricardo Pepi", 9, "Atacante", 23, 30, 10, ["FC Dallas", "Augsburg", "PSV"]),
+    p("Folarin Balogun", 20, "Centroavante", 25, 20, 7, ["Arsenal", "Reims", "Monaco"]),
+  ],
+  BRA: [
+    p("Alisson Becker", 1, "Goleiro", 33, 70, 0, ["Internacional", "Roma", "Liverpool"]),
+    p("Danilo", 2, "Lateral Direito", 35, 60, 3, ["Santos", "Porto", "Real Madrid", "Man City", "Juventus"]),
+    p("Marquinhos", 4, "Zagueiro", 32, 85, 7, ["Corinthians", "Roma", "PSG"]),
+    p("Éder Militão", 3, "Zagueiro", 28, 35, 2, ["São Paulo", "Porto", "Real Madrid"]),
+    p("Guilherme Arana", 6, "Lateral Esquerdo", 29, 15, 1, ["Corinthians", "Sevilla", "Atlético Mineiro"]),
+    p("Casemiro", 5, "Volante", 34, 80, 7, ["São Paulo", "Real Madrid", "Manchester United"]),
+    p("Lucas Paquetá", 8, "Meio-campista", 28, 55, 12, ["Flamengo", "AC Milan", "Lyon", "West Ham"]),
+    p("Vinícius Júnior", 7, "Ponta Esquerda", 25, 40, 8, ["Flamengo", "Real Madrid"]),
+    p("Neymar Jr.", 10, "Meia Atacante", 34, 130, 79, ["Santos", "Barcelona", "PSG", "Al-Hilal"]),
+    p("Rodrygo", 11, "Ponta Direita", 25, 25, 6, ["Santos", "Real Madrid"]),
+    p("Endrick", 9, "Atacante", 19, 12, 4, ["Palmeiras", "Real Madrid"]),
+  ],
+  ARG: [
+    p("Emiliano Martínez", 23, "Goleiro", 33, 55, 0, ["Arsenal", "Aston Villa"]),
+    p("Nahuel Molina", 26, "Lateral Direito", 28, 35, 3, ["Udinese", "Atlético Madrid"]),
+    p("Cristian Romero", 6, "Zagueiro", 28, 30, 2, ["Genoa", "Atalanta", "Tottenham"]),
+    p("Lisandro Martínez", 25, "Zagueiro", 28, 25, 1, ["Defensa y Justicia", "Ajax", "Manchester United"]),
+    p("Nicolás Tagliafico", 3, "Lateral Esquerdo", 33, 50, 2, ["Independiente", "Ajax", "Lyon"]),
+    p("Rodrigo De Paul", 7, "Meio-campista", 32, 65, 5, ["Valencia", "Udinese", "Atlético Madrid"]),
+    p("Enzo Fernández", 24, "Meio-campista", 25, 35, 4, ["River Plate", "Benfica", "Chelsea"]),
+    p("Lionel Messi", 10, "Ponta Direita", 38, 190, 110, ["Barcelona", "PSG", "Inter Miami"]),
+    p("Julián Álvarez", 9, "Atacante", 26, 40, 15, ["River Plate", "Manchester City", "Atlético Madrid"]),
+    p("Lautaro Martínez", 22, "Centroavante", 28, 60, 30, ["Racing Club", "Inter Milan"]),
+    p("Alejandro Garnacho", 11, "Ponta Esquerda", 21, 15, 4, ["Manchester United", "Napoli"]),
+  ],
+  FRA: [
+    p("Mike Maignan", 1, "Goleiro", 31, 25, 0, ["Lille", "AC Milan"]),
+    p("Jules Koundé", 2, "Lateral Direito", 27, 40, 2, ["Sevilla", "Barcelona"]),
+    p("Dayot Upamecano", 4, "Zagueiro", 27, 30, 1, ["RB Leipzig", "Bayern Munich"]),
+    p("William Saliba", 5, "Zagueiro", 25, 25, 1, ["Saint-Étienne", "Arsenal"]),
+    p("Theo Hernández", 22, "Lateral Esquerdo", 29, 45, 6, ["Real Madrid", "AC Milan"]),
+    p("N'Golo Kanté", 13, "Volante", 35, 60, 2, ["Leicester City", "Chelsea", "Al-Ittihad"]),
+    p("Aurélien Tchouaméni", 8, "Meio-campista", 26, 45, 5, ["Bordeaux", "Monaco", "Real Madrid"]),
+    p("Antoine Griezmann", 7, "Meia Atacante", 35, 140, 46, ["Real Sociedad", "Atlético Madrid", "Barcelona"]),
+    p("Kylian Mbappé", 10, "Atacante", 27, 95, 55, ["Monaco", "PSG", "Real Madrid"]),
+    p("Ousmane Dembélé", 11, "Ponta Direita", 29, 55, 8, ["Borussia Dortmund", "Barcelona", "PSG"]),
+    p("Marcus Thuram", 9, "Centroavante", 29, 30, 6, ["Borussia Mönchengladbach", "Inter Milan"]),
+  ],
+  ESP: [
+    p("Unai Simón", 1, "Goleiro", 29, 40, 0, ["Athletic Bilbao"]),
+    p("Dani Carvajal", 2, "Lateral Direito", 34, 50, 4, ["Real Madrid"]),
+    p("Aymeric Laporte", 4, "Zagueiro", 32, 30, 2, ["Athletic Bilbao", "Man City", "Al-Nassr"]),
+    p("Marc Cucurella", 3, "Lateral Esquerdo", 27, 25, 1, ["Barcelona", "Getafe", "Brighton", "Chelsea"]),
+    p("Rodri", 16, "Volante", 30, 65, 5, ["Villarreal", "Atlético Madrid", "Manchester City"]),
+    p("Pedri", 8, "Meio-campista", 23, 40, 4, ["Las Palmas", "Barcelona"]),
+    p("Gavi", 6, "Meio-campista", 21, 30, 3, ["Barcelona"]),
+    p("Lamine Yamal", 19, "Ponta Direita", 18, 25, 6, ["Barcelona"]),
+    p("Nico Williams", 11, "Ponta Esquerda", 24, 25, 5, ["Athletic Bilbao"]),
+    p("Álvaro Morata", 7, "Atacante", 33, 85, 36, ["Real Madrid", "Juventus", "Chelsea", "Atlético Madrid", "AC Milan"]),
+    p("Dani Olmo", 10, "Meia Atacante", 28, 45, 12, ["Dinamo Zagreb", "RB Leipzig", "Barcelona"]),
+  ],
+  ENG: [
+    p("Jordan Pickford", 1, "Goleiro", 32, 65, 0, ["Sunderland", "Everton"]),
+    p("Trent Alexander-Arnold", 66, "Lateral Direito", 27, 35, 3, ["Liverpool", "Real Madrid"]),
+    p("John Stones", 5, "Zagueiro", 32, 75, 3, ["Everton", "Manchester City"]),
+    p("Luke Shaw", 3, "Lateral Esquerdo", 30, 35, 1, ["Southampton", "Manchester United"]),
+    p("Declan Rice", 41, "Volante", 27, 55, 5, ["West Ham", "Arsenal"]),
+    p("Jude Bellingham", 10, "Meio-campista", 22, 50, 12, ["Birmingham City", "Borussia Dortmund", "Real Madrid"]),
+    p("Phil Foden", 47, "Meia Atacante", 26, 45, 8, ["Manchester City"]),
+    p("Bukayo Saka", 7, "Ponta Direita", 24, 50, 14, ["Arsenal"]),
+    p("Harry Kane", 9, "Atacante", 32, 105, 70, ["Tottenham", "Bayern Munich"]),
+    p("Cole Palmer", 20, "Ponta Direita", 24, 20, 5, ["Manchester City", "Chelsea"]),
+    p("Marcus Rashford", 11, "Ponta Esquerda", 28, 60, 17, ["Manchester United", "Barcelona"]),
+  ],
+  GER: [
+    p("Marc-André ter Stegen", 1, "Goleiro", 34, 45, 0, ["B. Mönchengladbach", "Barcelona"]),
+    p("Joshua Kimmich", 6, "Lateral Direito", 31, 95, 7, ["RB Leipzig", "Bayern Munich", "Barcelona"]),
+    p("Antonio Rüdiger", 2, "Zagueiro", 33, 70, 3, ["Stuttgart", "Roma", "Chelsea", "Real Madrid"]),
+    p("Jonathan Tah", 4, "Zagueiro", 29, 30, 1, ["Bayer Leverkusen", "Bayern Munich"]),
+    p("David Raum", 3, "Lateral Esquerdo", 28, 25, 2, ["Hoffenheim", "RB Leipzig"]),
+    p("İlkay Gündoğan", 8, "Meio-campista", 35, 80, 18, ["Nürnberg", "B. Dortmund", "Man City", "Barcelona"]),
+    p("Florian Wirtz", 10, "Meia Atacante", 23, 35, 10, ["Bayer Leverkusen", "Bayern Munich"]),
+    p("Jamal Musiala", 14, "Ponta Direita", 23, 45, 8, ["Bayern Munich"]),
+    p("Leroy Sané", 19, "Ponta Esquerda", 30, 60, 14, ["Schalke 04", "Man City", "Bayern Munich"]),
+    p("Kai Havertz", 7, "Centroavante", 27, 50, 20, ["Bayer Leverkusen", "Chelsea", "Arsenal"]),
+    p("Niclas Füllkrug", 9, "Atacante", 33, 25, 14, ["Werder Bremen", "B. Dortmund", "West Ham"]),
+  ],
+  POR: [
+    p("Diogo Costa", 1, "Goleiro", 27, 20, 0, ["Porto"]),
+    p("João Cancelo", 20, "Lateral Direito", 32, 55, 4, ["Benfica", "Valencia", "Juventus", "Man City", "Bayern", "Barcelona"]),
+    p("Rúben Dias", 4, "Zagueiro", 29, 50, 2, ["Benfica", "Manchester City"]),
+    p("Nuno Mendes", 3, "Lateral Esquerdo", 24, 30, 1, ["Sporting CP", "PSG"]),
+    p("Vitinha", 8, "Meio-campista", 25, 30, 3, ["Porto", "PSG"]),
+    p("Bruno Fernandes", 10, "Meia Atacante", 31, 65, 18, ["Novara", "Udinese", "Sampdoria", "Sporting CP", "Man United"]),
+    p("Bernardo Silva", 20, "Ponta Direita", 31, 85, 12, ["Benfica", "Monaco", "Manchester City"]),
+    p("Rafael Leão", 17, "Ponta Esquerda", 27, 35, 8, ["Sporting CP", "Lille", "AC Milan"]),
+    p("Cristiano Ronaldo", 7, "Atacante", 41, 215, 135, ["Sporting CP", "Man United", "Real Madrid", "Juventus", "Al-Nassr"]),
+    p("Gonçalo Ramos", 9, "Centroavante", 25, 20, 6, ["Benfica", "PSG"]),
+    p("Rúben Neves", 18, "Volante", 29, 40, 3, ["Porto", "Wolverhampton", "Al-Hilal"]),
+  ],
+  NED: [
+    p("Bart Verbruggen", 1, "Goleiro", 23, 15, 0, ["Anderlecht", "Brighton"]),
+    p("Denzel Dumfries", 2, "Lateral Direito", 30, 55, 6, ["Heerenveen", "PSV", "Inter Milan"]),
+    p("Virgil van Dijk", 4, "Zagueiro", 34, 70, 7, ["Groningen", "Celtic", "Southampton", "Liverpool"]),
+    p("Nathan Aké", 5, "Zagueiro", 31, 40, 2, ["Chelsea", "Bournemouth", "Manchester City"]),
+    p("Ian Maatsen", 3, "Lateral Esquerdo", 23, 10, 0, ["Chelsea", "B. Dortmund", "Aston Villa"]),
+    p("Frenkie de Jong", 21, "Meio-campista", 29, 55, 3, ["Willem II", "Ajax", "Barcelona"]),
+    p("Ryan Gravenberch", 8, "Volante", 24, 20, 1, ["Ajax", "Bayern Munich", "Liverpool"]),
+    p("Xavi Simons", 7, "Meia Atacante", 23, 20, 4, ["PSG", "PSV", "RB Leipzig"]),
+    p("Cody Gakpo", 11, "Ponta Esquerda", 25, 40, 12, ["PSV", "Liverpool"]),
+    p("Memphis Depay", 10, "Atacante", 32, 95, 46, ["PSV", "Man United", "Lyon", "Barcelona", "Atlético Madrid"]),
+    p("Jeremie Frimpong", 22, "Ponta Direita", 25, 15, 3, ["Celtic", "Bayer Leverkusen"]),
+  ],
+  ITA: [
+    p("Gianluigi Donnarumma", 1, "Goleiro", 27, 75, 0, ["AC Milan", "PSG"]),
+    p("Giovanni Di Lorenzo", 2, "Lateral Direito", 32, 40, 3, ["Empoli", "Napoli"]),
+    p("Alessandro Bastoni", 6, "Zagueiro", 27, 30, 2, ["Atalanta", "Parma", "Inter Milan"]),
+    p("Riccardo Calafiori", 5, "Lateral Esquerdo", 24, 15, 1, ["Roma", "Basel", "Bologna", "Arsenal"]),
+    p("Nicolò Barella", 18, "Meio-campista", 29, 60, 10, ["Cagliari", "Inter Milan"]),
+    p("Sandro Tonali", 8, "Volante", 26, 30, 2, ["Brescia", "AC Milan", "Newcastle"]),
+    p("Federico Chiesa", 14, "Ponta Direita", 28, 45, 8, ["Fiorentina", "Juventus", "Liverpool"]),
+    p("Lorenzo Pellegrini", 10, "Meia Atacante", 29, 40, 8, ["Sassuolo", "Roma"]),
+    p("Gianluca Scamacca", 9, "Atacante", 27, 20, 7, ["Sassuolo", "West Ham", "Atalanta"]),
+    p("Federico Dimarco", 3, "Lateral Esquerdo", 28, 25, 4, ["Inter Milan", "Parma", "Hellas Verona"]),
+    p("Mateo Retegui", 11, "Centroavante", 25, 15, 7, ["Boca Juniors", "Tigre", "Genoa", "Atalanta"]),
+  ],
+  MAR: [
+    p("Yassine Bounou", 1, "Goleiro", 35, 75, 0, ["Girona", "Sevilla", "Al-Hilal"]),
+    p("Achraf Hakimi", 2, "Lateral Direito", 27, 85, 12, ["Real Madrid", "B. Dortmund", "Inter Milan", "PSG"]),
+    p("Nayef Aguerd", 5, "Zagueiro", 30, 50, 3, ["Dijon", "Rennes", "West Ham"]),
+    p("Noussair Mazraoui", 3, "Lateral Esquerdo", 28, 35, 1, ["Ajax", "Bayern Munich", "Man United"]),
+    p("Sofyan Amrabat", 4, "Volante", 29, 65, 1, ["Feyenoord", "Hellas Verona", "Fiorentina", "Man United"]),
+    p("Azzedine Ounahi", 8, "Meio-campista", 26, 35, 3, ["Angers", "Marseille"]),
+    p("Hakim Ziyech", 7, "Ponta Direita", 33, 55, 20, ["Ajax", "Chelsea", "Galatasaray"]),
+    p("Brahim Díaz", 10, "Meia Atacante", 26, 20, 5, ["Man City", "Real Madrid", "AC Milan"]),
+    p("Sofiane Boufal", 11, "Ponta Esquerda", 31, 40, 8, ["Lille", "Southampton", "Angers"]),
+    p("Youssef En-Nesyri", 9, "Atacante", 29, 75, 25, ["Málaga", "Leganés", "Sevilla", "Fenerbahçe"]),
+    p("Romain Saïss", 6, "Zagueiro", 36, 85, 5, ["Wolverhampton", "Besiktas", "Al-Shabab"]),
+  ],
+  COL: [
+    p("David Ospina", 1, "Goleiro", 37, 120, 0, ["Nice", "Arsenal", "Napoli", "Al-Nassr"]),
+    p("Daniel Muñoz", 2, "Lateral Direito", 28, 30, 3, ["Atlético Nacional", "Genk", "Crystal Palace"]),
+    p("Yerry Mina", 13, "Zagueiro", 31, 55, 8, ["Palmeiras", "Barcelona", "Everton", "Fiorentina"]),
+    p("Johan Mojica", 3, "Lateral Esquerdo", 32, 40, 2, ["Girona", "Elche", "Villarreal", "Mallorca"]),
+    p("Jefferson Lerma", 16, "Volante", 31, 55, 3, ["Levante", "Bournemouth", "Crystal Palace"]),
+    p("James Rodríguez", 10, "Meia Atacante", 34, 110, 28, ["Porto", "Monaco", "Real Madrid", "Bayern", "Everton", "São Paulo"]),
+    p("Richard Ríos", 8, "Meio-campista", 24, 20, 2, ["Guarani", "Palmeiras"]),
+    p("Luis Díaz", 7, "Ponta Esquerda", 29, 55, 12, ["Junior Barranquilla", "Porto", "Liverpool"]),
+    p("Jhon Arias", 11, "Ponta Direita", 27, 25, 5, ["Fluminense"]),
+    p("Rafael Santos Borré", 9, "Atacante", 30, 35, 8, ["Atlético Madrid", "River Plate", "E. Frankfurt", "Internacional"]),
+    p("Jhon Durán", 19, "Centroavante", 22, 15, 5, ["Envigado", "Chicago Fire", "Aston Villa"]),
+  ],
+  KOR: [
+    p("Kim Seung-gyu", 1, "Goleiro", 36, 65, 0, ["Vissel Kobe", "Al-Shabab"]),
+    p("Kim Min-jae", 3, "Zagueiro", 29, 55, 3, ["Jeonbuk", "Beijing Guoan", "Napoli", "Bayern Munich"]),
+    p("Son Heung-min", 7, "Ponta Esquerda", 33, 130, 50, ["Hamburger SV", "Bayer Leverkusen", "Tottenham"]),
+    p("Lee Kang-in", 10, "Meia Atacante", 25, 55, 12, ["Valencia", "Mallorca", "PSG"]),
+    p("Hwang Hee-chan", 11, "Atacante", 30, 55, 14, ["Salzburg", "RB Leipzig", "Wolverhampton"]),
+    p("Jung Woo-young", 6, "Volante", 36, 90, 4, ["Vissel Kobe", "Al-Sadd", "Jeonbuk"]),
+    p("Hwang In-beom", 8, "Meio-campista", 29, 50, 5, ["Rubin Kazan", "Olympiacos", "Feyenoord"]),
+    p("Kim Jin-su", 2, "Lateral Esquerdo", 34, 65, 3, ["Hoffenheim", "Jeonbuk"]),
+    p("Cho Gue-sung", 9, "Centroavante", 28, 25, 8, ["Jeonbuk", "Midtjylland"]),
+    p("Lee Jae-sung", 14, "Meio-campista", 32, 60, 8, ["Jeonbuk", "Holstein Kiel", "Mainz"]),
+    p("Seol Young-woo", 4, "Zagueiro", 25, 15, 1, ["Ulsan HD"]),
+  ],
+  BEL: [
+    p("Thibaut Courtois", 1, "Goleiro", 34, 110, 0, ["Genk", "Chelsea", "Atlético Madrid", "Real Madrid"]),
+    p("Timothy Castagne", 2, "Lateral Direito", 30, 45, 3, ["Atalanta", "Leicester City", "Fulham"]),
+    p("Jan Vertonghen", 5, "Zagueiro", 39, 155, 10, ["Ajax", "Tottenham", "Benfica", "Anderlecht"]),
+    p("Arthur Theate", 4, "Zagueiro", 26, 20, 1, ["Bologna", "Rennes", "Al-Ittihad"]),
+    p("Maxim De Cuyper", 3, "Lateral Esquerdo", 26, 10, 1, ["Club Brugge"]),
+    p("Amadou Onana", 6, "Volante", 24, 25, 2, ["Lille", "Everton", "Aston Villa"]),
+    p("Kevin De Bruyne", 7, "Meia Atacante", 34, 110, 28, ["Genk", "Chelsea", "Wolfsburg", "Man City"]),
+    p("Youri Tielemans", 8, "Meio-campista", 29, 70, 8, ["Anderlecht", "Monaco", "Leicester", "Aston Villa"]),
+    p("Jérémy Doku", 11, "Ponta Esquerda", 23, 30, 4, ["Anderlecht", "Rennes", "Manchester City"]),
+    p("Romelu Lukaku", 9, "Atacante", 33, 120, 85, ["Anderlecht", "Chelsea", "Everton", "Man United", "Inter", "Roma", "Napoli"]),
+    p("Leandro Trossard", 10, "Ponta Direita", 31, 40, 8, ["Genk", "Brighton", "Arsenal"]),
+  ],
+  CRO: [
+    p("Dominik Livaković", 1, "Goleiro", 31, 55, 0, ["Dinamo Zagreb", "Fenerbahçe"]),
+    p("Josip Šutalo", 2, "Zagueiro", 26, 15, 1, ["Dinamo Zagreb", "Ajax", "Atalanta"]),
+    p("Joško Gvardiol", 4, "Zagueiro", 23, 35, 3, ["Dinamo Zagreb", "RB Leipzig", "Manchester City"]),
+    p("Borna Sosa", 3, "Lateral Esquerdo", 27, 20, 2, ["Stuttgart", "Ajax", "Torino"]),
+    p("Luka Modrić", 10, "Meio-campista", 40, 180, 25, ["Dinamo Zagreb", "Tottenham", "Real Madrid"]),
+    p("Mateo Kovačić", 8, "Meio-campista", 31, 100, 5, ["Dinamo Zagreb", "Inter", "Real Madrid", "Chelsea", "Man City"]),
+    p("Marcelo Brozović", 11, "Volante", 33, 95, 8, ["Dinamo Zagreb", "Inter Milan", "Al-Nassr"]),
+    p("Lovro Majer", 7, "Meia Atacante", 27, 25, 4, ["Dinamo Zagreb", "Rennes", "Wolfsburg"]),
+    p("Ivan Perišić", 4, "Ponta Esquerda", 37, 130, 33, ["Club Brugge", "Wolfsburg", "Inter", "Bayern", "Tottenham"]),
+    p("Andrej Kramarić", 9, "Atacante", 34, 90, 28, ["Dinamo Zagreb", "Leicester City", "Hoffenheim"]),
+    p("Martin Erlić", 5, "Zagueiro", 28, 15, 1, ["Sassuolo", "Bologna"]),
+  ],
+  URU: [
+    p("Fernando Muslera", 1, "Goleiro", 39, 140, 0, ["Nacional", "Lazio", "Galatasaray"]),
+    p("José Giménez", 2, "Zagueiro", 31, 90, 5, ["Atlético Madrid"]),
+    p("Mathías Olivera", 4, "Lateral Esquerdo", 28, 30, 1, ["Nacional", "Getafe", "Napoli"]),
+    p("Manuel Ugarte", 5, "Volante", 25, 25, 1, ["Fénix", "Sporting CP", "PSG", "Man United"]),
+    p("Federico Valverde", 15, "Meio-campista", 27, 65, 8, ["Peñarol", "Real Madrid"]),
+    p("Rodrigo Bentancur", 6, "Volante", 29, 60, 2, ["Boca Juniors", "Juventus", "Tottenham"]),
+    p("Nicolás de la Cruz", 10, "Meia Atacante", 27, 30, 5, ["Liverpool Montevideo", "River Plate", "Flamengo"]),
+    p("Facundo Pellistri", 11, "Ponta Direita", 24, 25, 3, ["Peñarol", "Man United", "Panathinaikos"]),
+    p("Darwin Núñez", 9, "Atacante", 27, 45, 15, ["Peñarol", "Almería", "Benfica", "Liverpool"]),
+    p("Luis Suárez", 7, "Centroavante", 39, 140, 68, ["Nacional", "Groningen", "Ajax", "Liverpool", "Barcelona", "Atlético", "Inter Miami"]),
+    p("Diego Godín", 3, "Zagueiro", 40, 165, 8, ["Nacional", "Villarreal", "Atlético Madrid", "Inter Milan"]),
+  ],
+};
+
+// Default squad generator for teams without explicit data
+function generateDefaultSquad(teamCode: string): Player[] {
+  const positions = [
+    { pos: "Goleiro", num: 1 },
+    { pos: "Lateral Direito", num: 2 },
+    { pos: "Zagueiro", num: 4 },
+    { pos: "Zagueiro", num: 5 },
+    { pos: "Lateral Esquerdo", num: 3 },
+    { pos: "Volante", num: 6 },
+    { pos: "Meio-campista", num: 8 },
+    { pos: "Meia Atacante", num: 10 },
+    { pos: "Ponta Direita", num: 7 },
+    { pos: "Atacante", num: 9 },
+    { pos: "Ponta Esquerda", num: 11 },
+  ];
+  return positions.map((item) =>
+    p(`Jogador ${teamCode} #${item.num}`, item.num, item.pos, 25 + Math.floor(Math.random() * 8), 15 + Math.floor(Math.random() * 40), Math.floor(Math.random() * 10), [`Clube ${teamCode}`])
+  );
+}
+
+export function getSquad(teamCode: string): Player[] {
+  return data[teamCode] || generateDefaultSquad(teamCode);
+}

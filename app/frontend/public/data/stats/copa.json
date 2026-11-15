@@ -1,0 +1,2280 @@
+{
+  "generatedAt": "2026-11-05T18:21:07Z",
+  "editions": [
+    {
+      "year": 1930,
+      "label": "Copa 1930",
+      "host": "Uruguai",
+      "champion": "Uruguai",
+      "runnerUp": "Argentina",
+      "teams": 13,
+      "matches": 18,
+      "goals": 70,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Guillermo Stabile",
+          "team": "Argentina",
+          "goals": 8
+        },
+        {
+          "player": "Pedro Cea",
+          "team": "Uruguai",
+          "goals": 5
+        },
+        {
+          "player": "Bert Patenaude",
+          "team": "Estados Unidos",
+          "goals": 4
+        },
+        {
+          "player": "Carlos Peucelle",
+          "team": "Argentina",
+          "goals": 3
+        },
+        {
+          "player": "Ivica Bek",
+          "team": "Iugoslávia",
+          "goals": 3
+        }
+      ],
+      "biggestWin": {
+        "home": "Argentina",
+        "away": "Estados Unidos",
+        "score": "6-1"
+      }
+    },
+    {
+      "year": 1934,
+      "label": "Copa 1934",
+      "host": "Itália",
+      "champion": "Itália",
+      "runnerUp": "Tchecoslováquia",
+      "teams": 16,
+      "matches": 17,
+      "goals": 70,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Oldrich Nejedly",
+          "team": "Tchecoslováquia",
+          "goals": 5
+        },
+        {
+          "player": "Angelo Schiavio",
+          "team": "Itália",
+          "goals": 4
+        },
+        {
+          "player": "Edmund Conen",
+          "team": "Alemanha",
+          "goals": 4
+        },
+        {
+          "player": "Leopold Kielholz",
+          "team": "Suíça",
+          "goals": 3
+        },
+        {
+          "player": "Raimundo Orsi",
+          "team": "Itália",
+          "goals": 3
+        }
+      ],
+      "biggestWin": {
+        "home": "Itália",
+        "away": "Estados Unidos",
+        "score": "7-1"
+      }
+    },
+    {
+      "year": 1938,
+      "label": "Copa 1938",
+      "host": "França",
+      "champion": "Itália",
+      "runnerUp": "Hungria",
+      "teams": 15,
+      "matches": 18,
+      "goals": 84,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Leonidas",
+          "team": "Brasil",
+          "goals": 7
+        },
+        {
+          "player": "Gyorgy Sarosi",
+          "team": "Hungria",
+          "goals": 5
+        },
+        {
+          "player": "Gyula Zsengeller",
+          "team": "Hungria",
+          "goals": 5
+        },
+        {
+          "player": "Silvio Piola",
+          "team": "Itália",
+          "goals": 5
+        },
+        {
+          "player": "Ernest Wilimowski",
+          "team": "Polônia",
+          "goals": 4
+        }
+      ],
+      "biggestWin": {
+        "home": "Suécia",
+        "away": "Cuba",
+        "score": "8-0"
+      }
+    },
+    {
+      "year": 1950,
+      "label": "Copa 1950",
+      "host": "Brasil",
+      "champion": "Uruguai",
+      "runnerUp": "Brasil",
+      "teams": 13,
+      "matches": 22,
+      "goals": 88,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Ademir",
+          "team": "Brasil",
+          "goals": 9
+        },
+        {
+          "player": "Oscar Miguez",
+          "team": "Uruguai",
+          "goals": 5
+        },
+        {
+          "player": "Alcides Ghiggia",
+          "team": "Uruguai",
+          "goals": 4
+        },
+        {
+          "player": "Chico",
+          "team": "Brasil",
+          "goals": 4
+        },
+        {
+          "player": "Estanislao Basora",
+          "team": "Espanha",
+          "goals": 4
+        }
+      ],
+      "biggestWin": {
+        "home": "Uruguai",
+        "away": "Bolívia",
+        "score": "8-0"
+      }
+    },
+    {
+      "year": 1954,
+      "label": "Copa 1954",
+      "host": "Suíça",
+      "champion": "RF da Alemanha",
+      "runnerUp": "Hungria",
+      "teams": 16,
+      "matches": 26,
+      "goals": 140,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Sandor Kocsis",
+          "team": "Hungria",
+          "goals": 11
+        },
+        {
+          "player": "Erich Probst",
+          "team": "Áustria",
+          "goals": 6
+        },
+        {
+          "player": "Max Morlock",
+          "team": "RF da Alemanha",
+          "goals": 6
+        },
+        {
+          "player": "Sepp Huegi",
+          "team": "Suíça",
+          "goals": 6
+        },
+        {
+          "player": "Carlos Borges",
+          "team": "Uruguai",
+          "goals": 4
+        }
+      ],
+      "biggestWin": {
+        "home": "Hungria",
+        "away": "República da Coreia",
+        "score": "9-0"
+      }
+    },
+    {
+      "year": 1958,
+      "label": "Copa 1958",
+      "host": "Suécia",
+      "champion": "Brasil",
+      "runnerUp": "Suécia",
+      "teams": 16,
+      "matches": 35,
+      "goals": 126,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Just Fontaine",
+          "team": "França",
+          "goals": 13
+        },
+        {
+          "player": "(Edson Arantes do Nascimento) Pelé",
+          "team": "Brasil",
+          "goals": 6
+        },
+        {
+          "player": "Helmut Rahn",
+          "team": "RF da Alemanha",
+          "goals": 6
+        },
+        {
+          "player": "Peter McPARLAND",
+          "team": "Irlanda do Norte",
+          "goals": 5
+        },
+        {
+          "player": "Vava",
+          "team": "Brasil",
+          "goals": 5
+        }
+      ],
+      "biggestWin": {
+        "home": "Tchecoslováquia",
+        "away": "Argentina",
+        "score": "6-1"
+      }
+    },
+    {
+      "year": 1962,
+      "label": "Copa 1962",
+      "host": "Chile",
+      "champion": "Brasil",
+      "runnerUp": "Tchecoslováquia",
+      "teams": 16,
+      "matches": 32,
+      "goals": 89,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Drazen Jerkovic",
+          "team": "Iugoslávia",
+          "goals": 4
+        },
+        {
+          "player": "Florian Albert",
+          "team": "Hungria",
+          "goals": 4
+        },
+        {
+          "player": "Garrincha",
+          "team": "Brasil",
+          "goals": 4
+        },
+        {
+          "player": "Leonel Sanchez",
+          "team": "Chile",
+          "goals": 4
+        },
+        {
+          "player": "Valentin Ivanov",
+          "team": "União Soviética",
+          "goals": 4
+        }
+      ],
+      "biggestWin": {
+        "home": "Hungria",
+        "away": "Bulgária",
+        "score": "6-1"
+      }
+    },
+    {
+      "year": 1966,
+      "label": "Copa 1966",
+      "host": "Inglaterra",
+      "champion": "Inglaterra",
+      "runnerUp": "RF da Alemanha",
+      "teams": 16,
+      "matches": 32,
+      "goals": 89,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Eusebio",
+          "team": "Portugal",
+          "goals": 9
+        },
+        {
+          "player": "Helmut Haller",
+          "team": "RF da Alemanha",
+          "goals": 6
+        },
+        {
+          "player": "Ferenc Bene",
+          "team": "Hungria",
+          "goals": 4
+        },
+        {
+          "player": "Franz Beckenbauer",
+          "team": "RF da Alemanha",
+          "goals": 4
+        },
+        {
+          "player": "Geoff Hurst",
+          "team": "Inglaterra",
+          "goals": 4
+        }
+      ],
+      "biggestWin": {
+        "home": "RF da Alemanha",
+        "away": "Suíça",
+        "score": "5-0"
+      }
+    },
+    {
+      "year": 1970,
+      "label": "Copa 1970",
+      "host": "México",
+      "champion": "Brasil",
+      "runnerUp": "Itália",
+      "teams": 16,
+      "matches": 32,
+      "goals": 95,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Gerd Mueller",
+          "team": "RF da Alemanha",
+          "goals": 10
+        },
+        {
+          "player": "Jairzinho",
+          "team": "Brasil",
+          "goals": 7
+        },
+        {
+          "player": "Teofilo Cubillas",
+          "team": "Peru",
+          "goals": 5
+        },
+        {
+          "player": "(Edson Arantes do Nascimento) Pelé",
+          "team": "Brasil",
+          "goals": 4
+        },
+        {
+          "player": "Anatoly Bishovets",
+          "team": "União Soviética",
+          "goals": 4
+        }
+      ],
+      "biggestWin": {
+        "home": "México",
+        "away": "El Salvador",
+        "score": "4-0"
+      }
+    },
+    {
+      "year": 1974,
+      "label": "Copa 1974",
+      "host": "Alemanha",
+      "champion": "RF da Alemanha",
+      "runnerUp": "Holanda",
+      "teams": 16,
+      "matches": 38,
+      "goals": 97,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Grzegorz Lato",
+          "team": "Polônia",
+          "goals": 7
+        },
+        {
+          "player": "Andrzej Szarmach",
+          "team": "Polônia",
+          "goals": 5
+        },
+        {
+          "player": "Johan Neeskens",
+          "team": "Holanda",
+          "goals": 5
+        },
+        {
+          "player": "Gerd Mueller",
+          "team": "RF da Alemanha",
+          "goals": 4
+        },
+        {
+          "player": "Johnny Rep",
+          "team": "Holanda",
+          "goals": 4
+        }
+      ],
+      "biggestWin": {
+        "home": "Iugoslávia",
+        "away": "Zaire",
+        "score": "9-0"
+      }
+    },
+    {
+      "year": 1978,
+      "label": "Copa 1978",
+      "host": "Argentina",
+      "champion": "Argentina",
+      "runnerUp": "Holanda",
+      "teams": 16,
+      "matches": 38,
+      "goals": 102,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Mario Kempes",
+          "team": "Argentina",
+          "goals": 6
+        },
+        {
+          "player": "Rob Rensenbrink",
+          "team": "Holanda",
+          "goals": 5
+        },
+        {
+          "player": "Teofilo Cubillas",
+          "team": "Peru",
+          "goals": 5
+        },
+        {
+          "player": "Hans Krankl",
+          "team": "Áustria",
+          "goals": 4
+        },
+        {
+          "player": "Leopoldo Luque",
+          "team": "Argentina",
+          "goals": 4
+        }
+      ],
+      "biggestWin": {
+        "home": "RF da Alemanha",
+        "away": "México",
+        "score": "6-0"
+      }
+    },
+    {
+      "year": 1982,
+      "label": "Copa 1982",
+      "host": "Espanha",
+      "champion": "Itália",
+      "runnerUp": "RF da Alemanha",
+      "teams": 24,
+      "matches": 52,
+      "goals": 146,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Paolo Rossi",
+          "team": "Itália",
+          "goals": 6
+        },
+        {
+          "player": "Karl-Heinz Rummenigge",
+          "team": "RF da Alemanha",
+          "goals": 5
+        },
+        {
+          "player": "Zbigniew Boniek",
+          "team": "Polônia",
+          "goals": 4
+        },
+        {
+          "player": "Zico",
+          "team": "Brasil",
+          "goals": 4
+        },
+        {
+          "player": "Alain Giresse",
+          "team": "França",
+          "goals": 3
+        }
+      ],
+      "biggestWin": {
+        "home": "Hungria",
+        "away": "El Salvador",
+        "score": "10-1"
+      }
+    },
+    {
+      "year": 1986,
+      "label": "Copa 1986",
+      "host": "México",
+      "champion": "Argentina",
+      "runnerUp": "RF da Alemanha",
+      "teams": 24,
+      "matches": 52,
+      "goals": 132,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Gary Lineker",
+          "team": "Inglaterra",
+          "goals": 6
+        },
+        {
+          "player": "Careca",
+          "team": "Brasil",
+          "goals": 5
+        },
+        {
+          "player": "Diego Maradona",
+          "team": "Argentina",
+          "goals": 5
+        },
+        {
+          "player": "Emilio Butragueno",
+          "team": "Espanha",
+          "goals": 5
+        },
+        {
+          "player": "Alessandro Altobelli",
+          "team": "Itália",
+          "goals": 4
+        }
+      ],
+      "biggestWin": {
+        "home": "União Soviética",
+        "away": "Hungria",
+        "score": "6-0"
+      }
+    },
+    {
+      "year": 1990,
+      "label": "Copa 1990",
+      "host": "Itália",
+      "champion": "RF da Alemanha",
+      "runnerUp": "Argentina",
+      "teams": 24,
+      "matches": 52,
+      "goals": 115,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Salvatore Schillaci",
+          "team": "Itália",
+          "goals": 6
+        },
+        {
+          "player": "Tomas Skuhravy",
+          "team": "Tchecoslováquia",
+          "goals": 5
+        },
+        {
+          "player": "Gary Lineker",
+          "team": "Inglaterra",
+          "goals": 4
+        },
+        {
+          "player": "Lothar Matthaeus",
+          "team": "RF da Alemanha",
+          "goals": 4
+        },
+        {
+          "player": "Michel",
+          "team": "Espanha",
+          "goals": 4
+        }
+      ],
+      "biggestWin": {
+        "home": "Estados Unidos",
+        "away": "Tchecoslováquia",
+        "score": "1-5"
+      }
+    },
+    {
+      "year": 1994,
+      "label": "Copa 1994",
+      "host": "Estados Unidos",
+      "champion": "Brasil",
+      "runnerUp": "Itália",
+      "teams": 24,
+      "matches": 52,
+      "goals": 141,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Hristo Stoichkov",
+          "team": "Bulgária",
+          "goals": 6
+        },
+        {
+          "player": "Oleg Salenko",
+          "team": "Rússia",
+          "goals": 6
+        },
+        {
+          "player": "(Romário de Souza Faria) Romário",
+          "team": "Brasil",
+          "goals": 5
+        },
+        {
+          "player": "Juergen Klinsmann",
+          "team": "Alemanha",
+          "goals": 5
+        },
+        {
+          "player": "Kennet Andersson",
+          "team": "Suécia",
+          "goals": 5
+        }
+      ],
+      "biggestWin": {
+        "home": "Rússia",
+        "away": "Camarões",
+        "score": "6-1"
+      }
+    },
+    {
+      "year": 1998,
+      "label": "Copa 1998",
+      "host": "França",
+      "champion": "França",
+      "runnerUp": "Brasil",
+      "teams": 32,
+      "matches": 64,
+      "goals": 171,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Davor Suker",
+          "team": "Croácia",
+          "goals": 6
+        },
+        {
+          "player": "Christian Vieri",
+          "team": "Itália",
+          "goals": 5
+        },
+        {
+          "player": "Gabriel Batistuta",
+          "team": "Argentina",
+          "goals": 5
+        },
+        {
+          "player": "Luis Hernandez",
+          "team": "México",
+          "goals": 4
+        },
+        {
+          "player": "Marcelo Salas",
+          "team": "Chile",
+          "goals": 4
+        }
+      ],
+      "biggestWin": {
+        "home": "Espanha",
+        "away": "Bulgária",
+        "score": "6-1"
+      }
+    },
+    {
+      "year": 2002,
+      "label": "Copa 2002",
+      "host": "Japão · Coreia do Sul",
+      "champion": "Brasil",
+      "runnerUp": "Alemanha",
+      "teams": 32,
+      "matches": 64,
+      "goals": 161,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Ronaldo",
+          "team": "Brasil",
+          "goals": 8
+        },
+        {
+          "player": "Miroslav Klose",
+          "team": "Alemanha",
+          "goals": 5
+        },
+        {
+          "player": "Rivaldo",
+          "team": "Brasil",
+          "goals": 5
+        },
+        {
+          "player": "Christian Vieri",
+          "team": "Itália",
+          "goals": 4
+        },
+        {
+          "player": "Jon Dahl Tomasson",
+          "team": "Dinamarca",
+          "goals": 4
+        }
+      ],
+      "biggestWin": {
+        "home": "Alemanha",
+        "away": "Arábia Saudita",
+        "score": "8-0"
+      }
+    },
+    {
+      "year": 2006,
+      "label": "Copa 2006",
+      "host": "Alemanha",
+      "champion": "Itália",
+      "runnerUp": "França",
+      "teams": 32,
+      "matches": 64,
+      "goals": 147,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "Miroslav Klose",
+          "team": "Alemanha",
+          "goals": 5
+        },
+        {
+          "player": "David Villa",
+          "team": "Espanha",
+          "goals": 3
+        },
+        {
+          "player": "Fernando Torres",
+          "team": "Espanha",
+          "goals": 3
+        },
+        {
+          "player": "Hernan Crespo",
+          "team": "Argentina",
+          "goals": 3
+        },
+        {
+          "player": "Lukas Podolski",
+          "team": "Alemanha",
+          "goals": 3
+        }
+      ],
+      "biggestWin": {
+        "home": "Argentina",
+        "away": "Sérvia e Montenegro",
+        "score": "6-0"
+      }
+    },
+    {
+      "year": 2010,
+      "label": "Copa 2010",
+      "host": "África do Sul",
+      "champion": "Espanha",
+      "runnerUp": "Holanda",
+      "teams": 32,
+      "matches": 64,
+      "goals": 145,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "David Villa",
+          "team": "Espanha",
+          "goals": 5
+        },
+        {
+          "player": "Diego Forlan",
+          "team": "Uruguai",
+          "goals": 5
+        },
+        {
+          "player": "Thomas Mueller",
+          "team": "Alemanha",
+          "goals": 5
+        },
+        {
+          "player": "Wesley Sneijder",
+          "team": "Holanda",
+          "goals": 5
+        },
+        {
+          "player": "Gonzalo Higuain",
+          "team": "Argentina",
+          "goals": 4
+        }
+      ],
+      "biggestWin": {
+        "home": "Portugal",
+        "away": "RPD da Coreia",
+        "score": "7-0"
+      }
+    },
+    {
+      "year": 2014,
+      "label": "Copa 2014",
+      "host": "Brasil",
+      "champion": "Alemanha",
+      "runnerUp": "Argentina",
+      "teams": 32,
+      "matches": 64,
+      "goals": 171,
+      "attendanceTotal": null,
+      "attendanceAverage": null,
+      "topScorers": [
+        {
+          "player": "James Rodriguez",
+          "team": "Colômbia",
+          "goals": 6
+        },
+        {
+          "player": "Thomas Mueller",
+          "team": "Alemanha",
+          "goals": 5
+        },
+        {
+          "player": "Lionel Messi",
+          "team": "Argentina",
+          "goals": 4
+        },
+        {
+          "player": "Neymar",
+          "team": "Brasil",
+          "goals": 4
+        },
+        {
+          "player": "Robin Van Persie",
+          "team": "Holanda",
+          "goals": 4
+        }
+      ],
+      "biggestWin": {
+        "home": "Brasil",
+        "away": "Alemanha",
+        "score": "1-7"
+      }
+    },
+    {
+      "year": 2018,
+      "label": "Copa 2018",
+      "host": "Rússia",
+      "champion": "França",
+      "runnerUp": "Croácia",
+      "teams": 32,
+      "matches": 64,
+      "goals": 169,
+      "attendanceTotal": 3031768,
+      "attendanceAverage": 47371,
+      "topScorers": [
+        {
+          "player": "Harry Kane",
+          "team": "Inglaterra",
+          "goals": 6
+        },
+        {
+          "player": "Denis Cheryshev",
+          "team": "Rússia",
+          "goals": 5
+        },
+        {
+          "player": "Antoine Griezmann",
+          "team": "França",
+          "goals": 4
+        },
+        {
+          "player": "Cristiano Ronaldo",
+          "team": "Portugal",
+          "goals": 4
+        },
+        {
+          "player": "Kylian Mbappe",
+          "team": "França",
+          "goals": 4
+        }
+      ],
+      "biggestWin": {
+        "home": "Inglaterra",
+        "away": "Panamá",
+        "score": "6-1"
+      }
+    },
+    {
+      "year": 2022,
+      "label": "Copa 2022",
+      "host": "Catar",
+      "champion": "Argentina",
+      "runnerUp": "França",
+      "teams": 32,
+      "matches": 64,
+      "goals": 172,
+      "attendanceTotal": 3404252,
+      "attendanceAverage": 53191,
+      "topScorers": [
+        {
+          "player": "Kylian Mbappe",
+          "team": "França",
+          "goals": 8
+        },
+        {
+          "player": "Lionel Messi",
+          "team": "Argentina",
+          "goals": 7
+        },
+        {
+          "player": "Julian Alvarez",
+          "team": "Argentina",
+          "goals": 4
+        },
+        {
+          "player": "Olivier Giroud",
+          "team": "França",
+          "goals": 4
+        },
+        {
+          "player": "Alvaro Morata",
+          "team": "Espanha",
+          "goals": 3
+        }
+      ],
+      "biggestWin": {
+        "home": "Espanha",
+        "away": "Costa Rica",
+        "score": "7-0"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Copa 2026",
+      "host": "Canadá · México · Estados Unidos",
+      "champion": "Espanha",
+      "runnerUp": "Argentina",
+      "teams": 48,
+      "matches": 104,
+      "goals": 308,
+      "attendanceTotal": 6810966,
+      "attendanceAverage": 65490,
+      "topScorers": [
+        {
+          "player": "Kylian Mbappe",
+          "team": "França",
+          "goals": 10
+        },
+        {
+          "player": "Lionel Messi",
+          "team": "Argentina",
+          "goals": 8
+        },
+        {
+          "player": "Erling Haaland",
+          "team": "Noruega",
+          "goals": 7
+        },
+        {
+          "player": "Jude Bellingham",
+          "team": "Inglaterra",
+          "goals": 7
+        },
+        {
+          "player": "Harry Kane",
+          "team": "Inglaterra",
+          "goals": 6
+        }
+      ],
+      "biggestWin": {
+        "home": "Alemanha",
+        "away": "Curaçau",
+        "score": "7-1"
+      }
+    }
+  ],
+  "nextEdition": null,
+  "ranking": [
+    {
+      "code": "BRA",
+      "name": "Brasil",
+      "confederation": "CONMEBOL",
+      "titles": 5,
+      "participations": 23,
+      "played": 119,
+      "won": 79,
+      "drawn": 20,
+      "lost": 20,
+      "goalsFor": 247,
+      "goalsAgainst": 112,
+      "points": 257
+    },
+    {
+      "code": "ARG",
+      "name": "Argentina",
+      "confederation": "CONMEBOL",
+      "titles": 3,
+      "participations": 19,
+      "played": 96,
+      "won": 54,
+      "drawn": 17,
+      "lost": 25,
+      "goalsFor": 171,
+      "goalsAgainst": 109,
+      "points": 179
+    },
+    {
+      "code": "ITA",
+      "name": "Itália",
+      "confederation": "UEFA",
+      "titles": 4,
+      "participations": 18,
+      "played": 83,
+      "won": 45,
+      "drawn": 21,
+      "lost": 17,
+      "goalsFor": 128,
+      "goalsAgainst": 77,
+      "points": 156
+    },
+    {
+      "code": "FRA",
+      "name": "França",
+      "confederation": "UEFA",
+      "titles": 2,
+      "participations": 17,
+      "played": 81,
+      "won": 45,
+      "drawn": 14,
+      "lost": 22,
+      "goalsFor": 156,
+      "goalsAgainst": 95,
+      "points": 149
+    },
+    {
+      "code": "ENG",
+      "name": "Inglaterra",
+      "confederation": "UEFA",
+      "titles": 1,
+      "participations": 17,
+      "played": 82,
+      "won": 38,
+      "drawn": 23,
+      "lost": 21,
+      "goalsFor": 124,
+      "goalsAgainst": 80,
+      "points": 137
+    },
+    {
+      "code": "ESP",
+      "name": "Espanha",
+      "confederation": "UEFA",
+      "titles": 2,
+      "participations": 17,
+      "played": 75,
+      "won": 38,
+      "drawn": 18,
+      "lost": 19,
+      "goalsFor": 122,
+      "goalsAgainst": 76,
+      "points": 132
+    },
+    {
+      "code": "FRG",
+      "name": "RF da Alemanha",
+      "confederation": "UEFA",
+      "titles": 3,
+      "participations": 10,
+      "played": 62,
+      "won": 36,
+      "drawn": 14,
+      "lost": 12,
+      "goalsFor": 131,
+      "goalsAgainst": 77,
+      "points": 122
+    },
+    {
+      "code": "NED",
+      "name": "Holanda",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 12,
+      "played": 59,
+      "won": 32,
+      "drawn": 16,
+      "lost": 11,
+      "goalsFor": 107,
+      "goalsAgainst": 57,
+      "points": 112
+    },
+    {
+      "code": "GER",
+      "name": "Alemanha",
+      "confederation": "UEFA",
+      "titles": 1,
+      "participations": 11,
+      "played": 54,
+      "won": 34,
+      "drawn": 8,
+      "lost": 12,
+      "goalsFor": 112,
+      "goalsAgainst": 58,
+      "points": 110
+    },
+    {
+      "code": "URU",
+      "name": "Uruguai",
+      "confederation": "CONMEBOL",
+      "titles": 2,
+      "participations": 15,
+      "played": 62,
+      "won": 25,
+      "drawn": 15,
+      "lost": 22,
+      "goalsFor": 92,
+      "goalsAgainst": 80,
+      "points": 90
+    },
+    {
+      "code": "BEL",
+      "name": "Bélgica",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 15,
+      "played": 57,
+      "won": 24,
+      "drawn": 12,
+      "lost": 21,
+      "goalsFor": 83,
+      "goalsAgainst": 81,
+      "points": 84
+    },
+    {
+      "code": "MEX",
+      "name": "México",
+      "confederation": "CONCACAF",
+      "titles": 0,
+      "participations": 18,
+      "played": 65,
+      "won": 21,
+      "drawn": 15,
+      "lost": 29,
+      "goalsFor": 72,
+      "goalsAgainst": 104,
+      "points": 78
+    },
+    {
+      "code": "SWE",
+      "name": "Suécia",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 13,
+      "played": 55,
+      "won": 20,
+      "drawn": 14,
+      "lost": 21,
+      "goalsFor": 87,
+      "goalsAgainst": 83,
+      "points": 74
+    },
+    {
+      "code": "POR",
+      "name": "Portugal",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 9,
+      "played": 40,
+      "won": 19,
+      "drawn": 8,
+      "lost": 13,
+      "goalsFor": 69,
+      "goalsAgainst": 44,
+      "points": 65
+    },
+    {
+      "code": "SUI",
+      "name": "Suíça",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 13,
+      "played": 47,
+      "won": 17,
+      "drawn": 10,
+      "lost": 20,
+      "goalsFor": 65,
+      "goalsAgainst": 79,
+      "points": 61
+    },
+    {
+      "code": "POL",
+      "name": "Polônia",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 9,
+      "played": 38,
+      "won": 17,
+      "drawn": 6,
+      "lost": 15,
+      "goalsFor": 49,
+      "goalsAgainst": 50,
+      "points": 57
+    },
+    {
+      "code": "YUG",
+      "name": "Iugoslávia",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 9,
+      "played": 37,
+      "won": 16,
+      "drawn": 8,
+      "lost": 13,
+      "goalsFor": 60,
+      "goalsAgainst": 46,
+      "points": 56
+    },
+    {
+      "code": "CRO",
+      "name": "Croácia",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 7,
+      "played": 34,
+      "won": 15,
+      "drawn": 8,
+      "lost": 11,
+      "goalsFor": 49,
+      "goalsAgainst": 40,
+      "points": 53
+    },
+    {
+      "code": "URS",
+      "name": "União Soviética",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 7,
+      "played": 31,
+      "won": 15,
+      "drawn": 6,
+      "lost": 10,
+      "goalsFor": 53,
+      "goalsAgainst": 34,
+      "points": 51
+    },
+    {
+      "code": "HUN",
+      "name": "Hungria",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 9,
+      "played": 32,
+      "won": 15,
+      "drawn": 3,
+      "lost": 14,
+      "goalsFor": 87,
+      "goalsAgainst": 57,
+      "points": 48
+    },
+    {
+      "code": "AUT",
+      "name": "Áustria",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 8,
+      "played": 33,
+      "won": 13,
+      "drawn": 5,
+      "lost": 15,
+      "goalsFor": 49,
+      "goalsAgainst": 56,
+      "points": 44
+    },
+    {
+      "code": "USA",
+      "name": "Estados Unidos",
+      "confederation": "CONCACAF",
+      "titles": 0,
+      "participations": 12,
+      "played": 42,
+      "won": 12,
+      "drawn": 8,
+      "lost": 22,
+      "goalsFor": 51,
+      "goalsAgainst": 74,
+      "points": 44
+    },
+    {
+      "code": "COL",
+      "name": "Colômbia",
+      "confederation": "CONMEBOL",
+      "titles": 0,
+      "participations": 7,
+      "played": 27,
+      "won": 12,
+      "drawn": 5,
+      "lost": 10,
+      "goalsFor": 37,
+      "goalsAgainst": 31,
+      "points": 41
+    },
+    {
+      "code": "CHI",
+      "name": "Chile",
+      "confederation": "CONMEBOL",
+      "titles": 0,
+      "participations": 9,
+      "played": 33,
+      "won": 11,
+      "drawn": 7,
+      "lost": 15,
+      "goalsFor": 40,
+      "goalsAgainst": 49,
+      "points": 40
+    },
+    {
+      "code": "TCH",
+      "name": "Tchecoslováquia",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 8,
+      "played": 30,
+      "won": 11,
+      "drawn": 5,
+      "lost": 14,
+      "goalsFor": 44,
+      "goalsAgainst": 45,
+      "points": 38
+    },
+    {
+      "code": "PAR",
+      "name": "Paraguai",
+      "confederation": "CONMEBOL",
+      "titles": 0,
+      "participations": 9,
+      "played": 32,
+      "won": 8,
+      "drawn": 12,
+      "lost": 12,
+      "goalsFor": 33,
+      "goalsAgainst": 44,
+      "points": 36
+    },
+    {
+      "code": "KOR",
+      "name": "República da Coreia",
+      "confederation": "AFC",
+      "titles": 0,
+      "participations": 12,
+      "played": 41,
+      "won": 8,
+      "drawn": 10,
+      "lost": 23,
+      "goalsFor": 41,
+      "goalsAgainst": 81,
+      "points": 34
+    },
+    {
+      "code": "DEN",
+      "name": "Dinamarca",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 6,
+      "played": 23,
+      "won": 9,
+      "drawn": 6,
+      "lost": 8,
+      "goalsFor": 31,
+      "goalsAgainst": 29,
+      "points": 33
+    },
+    {
+      "code": "MAR",
+      "name": "Marrocos",
+      "confederation": "CAF",
+      "titles": 0,
+      "participations": 7,
+      "played": 29,
+      "won": 8,
+      "drawn": 9,
+      "lost": 12,
+      "goalsFor": 30,
+      "goalsAgainst": 33,
+      "points": 33
+    },
+    {
+      "code": "JPN",
+      "name": "Japão",
+      "confederation": "AFC",
+      "titles": 0,
+      "participations": 8,
+      "played": 29,
+      "won": 8,
+      "drawn": 8,
+      "lost": 13,
+      "goalsFor": 33,
+      "goalsAgainst": 38,
+      "points": 32
+    },
+    {
+      "code": "ROU",
+      "name": "Romênia",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 7,
+      "played": 21,
+      "won": 8,
+      "drawn": 5,
+      "lost": 8,
+      "goalsFor": 30,
+      "goalsAgainst": 32,
+      "points": 29
+    },
+    {
+      "code": "CRC",
+      "name": "Costa Rica",
+      "confederation": "CONCACAF",
+      "titles": 0,
+      "participations": 6,
+      "played": 21,
+      "won": 6,
+      "drawn": 5,
+      "lost": 10,
+      "goalsFor": 22,
+      "goalsAgainst": 39,
+      "points": 23
+    },
+    {
+      "code": "CMR",
+      "name": "Camarões",
+      "confederation": "CAF",
+      "titles": 0,
+      "participations": 8,
+      "played": 26,
+      "won": 5,
+      "drawn": 8,
+      "lost": 13,
+      "goalsFor": 22,
+      "goalsAgainst": 47,
+      "points": 23
+    },
+    {
+      "code": "GHA",
+      "name": "Gana",
+      "confederation": "CAF",
+      "titles": 0,
+      "participations": 5,
+      "played": 19,
+      "won": 6,
+      "drawn": 4,
+      "lost": 9,
+      "goalsFor": 20,
+      "goalsAgainst": 26,
+      "points": 22
+    },
+    {
+      "code": "SCO",
+      "name": "Escócia",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 9,
+      "played": 26,
+      "won": 5,
+      "drawn": 7,
+      "lost": 14,
+      "goalsFor": 26,
+      "goalsAgainst": 45,
+      "points": 22
+    },
+    {
+      "code": "NOR",
+      "name": "Noruega",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 4,
+      "played": 14,
+      "won": 6,
+      "drawn": 3,
+      "lost": 5,
+      "goalsFor": 20,
+      "goalsAgainst": 19,
+      "points": 21
+    },
+    {
+      "code": "SEN",
+      "name": "Senegal",
+      "confederation": "CAF",
+      "titles": 0,
+      "participations": 4,
+      "played": 16,
+      "won": 6,
+      "drawn": 3,
+      "lost": 7,
+      "goalsFor": 26,
+      "goalsAgainst": 26,
+      "points": 21
+    },
+    {
+      "code": "ECU",
+      "name": "Equador",
+      "confederation": "CONMEBOL",
+      "titles": 0,
+      "participations": 5,
+      "played": 17,
+      "won": 6,
+      "drawn": 3,
+      "lost": 8,
+      "goalsFor": 16,
+      "goalsAgainst": 18,
+      "points": 21
+    },
+    {
+      "code": "NGA",
+      "name": "Nigéria",
+      "confederation": "CAF",
+      "titles": 0,
+      "participations": 6,
+      "played": 21,
+      "won": 6,
+      "drawn": 3,
+      "lost": 12,
+      "goalsFor": 23,
+      "goalsAgainst": 30,
+      "points": 21
+    },
+    {
+      "code": "AUS",
+      "name": "Austrália",
+      "confederation": "AFC",
+      "titles": 0,
+      "participations": 7,
+      "played": 24,
+      "won": 5,
+      "drawn": 6,
+      "lost": 13,
+      "goalsFor": 20,
+      "goalsAgainst": 40,
+      "points": 21
+    },
+    {
+      "code": "TUR",
+      "name": "Turquia",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 3,
+      "played": 13,
+      "won": 6,
+      "drawn": 1,
+      "lost": 6,
+      "goalsFor": 23,
+      "goalsAgainst": 22,
+      "points": 19
+    },
+    {
+      "code": "PER",
+      "name": "Peru",
+      "confederation": "CONMEBOL",
+      "titles": 0,
+      "participations": 5,
+      "played": 18,
+      "won": 5,
+      "drawn": 3,
+      "lost": 10,
+      "goalsFor": 21,
+      "goalsAgainst": 33,
+      "points": 18
+    },
+    {
+      "code": "BUL",
+      "name": "Bulgária",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 7,
+      "played": 26,
+      "won": 3,
+      "drawn": 8,
+      "lost": 15,
+      "goalsFor": 22,
+      "goalsAgainst": 53,
+      "points": 17
+    },
+    {
+      "code": "RUS",
+      "name": "Rússia",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 4,
+      "played": 14,
+      "won": 4,
+      "drawn": 4,
+      "lost": 6,
+      "goalsFor": 24,
+      "goalsAgainst": 20,
+      "points": 16
+    },
+    {
+      "code": "CIV",
+      "name": "Costa do Marfim",
+      "confederation": "CAF",
+      "titles": 0,
+      "participations": 4,
+      "played": 13,
+      "won": 5,
+      "drawn": 1,
+      "lost": 7,
+      "goalsFor": 18,
+      "goalsAgainst": 18,
+      "points": 16
+    },
+    {
+      "code": "ALG",
+      "name": "Argélia",
+      "confederation": "CAF",
+      "titles": 0,
+      "participations": 5,
+      "played": 17,
+      "won": 4,
+      "drawn": 4,
+      "lost": 9,
+      "goalsFor": 18,
+      "goalsAgainst": 28,
+      "points": 16
+    },
+    {
+      "code": "IRN",
+      "name": "RI do Irã",
+      "confederation": "AFC",
+      "titles": 0,
+      "participations": 7,
+      "played": 21,
+      "won": 3,
+      "drawn": 7,
+      "lost": 11,
+      "goalsFor": 16,
+      "goalsAgainst": 34,
+      "points": 16
+    },
+    {
+      "code": "KSA",
+      "name": "Arábia Saudita",
+      "confederation": "AFC",
+      "titles": 0,
+      "participations": 7,
+      "played": 22,
+      "won": 4,
+      "drawn": 4,
+      "lost": 14,
+      "goalsFor": 15,
+      "goalsAgainst": 49,
+      "points": 16
+    },
+    {
+      "code": "IRL",
+      "name": "República da Irlanda",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 3,
+      "played": 13,
+      "won": 2,
+      "drawn": 8,
+      "lost": 3,
+      "goalsFor": 10,
+      "goalsAgainst": 10,
+      "points": 14
+    },
+    {
+      "code": "RSA",
+      "name": "África do Sul",
+      "confederation": "CAF",
+      "titles": 0,
+      "participations": 4,
+      "played": 13,
+      "won": 3,
+      "drawn": 5,
+      "lost": 5,
+      "goalsFor": 13,
+      "goalsAgainst": 20,
+      "points": 14
+    },
+    {
+      "code": "NIR",
+      "name": "Irlanda do Norte",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 3,
+      "played": 13,
+      "won": 3,
+      "drawn": 5,
+      "lost": 5,
+      "goalsFor": 13,
+      "goalsAgainst": 23,
+      "points": 14
+    },
+    {
+      "code": "TUN",
+      "name": "Tunísia",
+      "confederation": "CAF",
+      "titles": 0,
+      "participations": 7,
+      "played": 21,
+      "won": 3,
+      "drawn": 5,
+      "lost": 13,
+      "goalsFor": 16,
+      "goalsAgainst": 38,
+      "points": 14
+    },
+    {
+      "code": "GDR",
+      "name": "RD da Alemanha",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 1,
+      "played": 6,
+      "won": 2,
+      "drawn": 2,
+      "lost": 2,
+      "goalsFor": 5,
+      "goalsAgainst": 5,
+      "points": 8
+    },
+    {
+      "code": "EGY",
+      "name": "Egito",
+      "confederation": "CAF",
+      "titles": 0,
+      "participations": 4,
+      "played": 12,
+      "won": 1,
+      "drawn": 5,
+      "lost": 6,
+      "goalsFor": 13,
+      "goalsAgainst": 19,
+      "points": 8
+    },
+    {
+      "code": "GRE",
+      "name": "Grécia",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 3,
+      "played": 10,
+      "won": 2,
+      "drawn": 2,
+      "lost": 6,
+      "goalsFor": 5,
+      "goalsAgainst": 20,
+      "points": 8
+    },
+    {
+      "code": "UKR",
+      "name": "Ucrânia",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 1,
+      "played": 5,
+      "won": 2,
+      "drawn": 1,
+      "lost": 2,
+      "goalsFor": 5,
+      "goalsAgainst": 7,
+      "points": 7
+    },
+    {
+      "code": "BIH",
+      "name": "Bósnia e Herzegovina",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 2,
+      "played": 7,
+      "won": 2,
+      "drawn": 1,
+      "lost": 4,
+      "goalsFor": 9,
+      "goalsAgainst": 12,
+      "points": 7
+    },
+    {
+      "code": "WAL",
+      "name": "País de Gales",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 2,
+      "played": 8,
+      "won": 1,
+      "drawn": 4,
+      "lost": 3,
+      "goalsFor": 5,
+      "goalsAgainst": 10,
+      "points": 7
+    },
+    {
+      "code": "SRB",
+      "name": "Sérvia",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 3,
+      "played": 9,
+      "won": 2,
+      "drawn": 1,
+      "lost": 6,
+      "goalsFor": 9,
+      "goalsAgainst": 15,
+      "points": 7
+    },
+    {
+      "code": "CAN",
+      "name": "Canadá",
+      "confederation": "CONCACAF",
+      "titles": 0,
+      "participations": 3,
+      "played": 11,
+      "won": 2,
+      "drawn": 1,
+      "lost": 8,
+      "goalsFor": 11,
+      "goalsAgainst": 18,
+      "points": 7
+    },
+    {
+      "code": "COD",
+      "name": "RD do Congo",
+      "confederation": "CAF",
+      "titles": 0,
+      "participations": 1,
+      "played": 4,
+      "won": 1,
+      "drawn": 1,
+      "lost": 2,
+      "goalsFor": 5,
+      "goalsAgainst": 5,
+      "points": 4
+    },
+    {
+      "code": "SVK",
+      "name": "Eslováquia",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 1,
+      "played": 4,
+      "won": 1,
+      "drawn": 1,
+      "lost": 2,
+      "goalsFor": 5,
+      "goalsAgainst": 7,
+      "points": 4
+    },
+    {
+      "code": "SVN",
+      "name": "Eslovênia",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 2,
+      "played": 6,
+      "won": 1,
+      "drawn": 1,
+      "lost": 4,
+      "goalsFor": 5,
+      "goalsAgainst": 10,
+      "points": 4
+    },
+    {
+      "code": "CZE",
+      "name": "Tchéquia",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 2,
+      "played": 6,
+      "won": 1,
+      "drawn": 1,
+      "lost": 4,
+      "goalsFor": 5,
+      "goalsAgainst": 10,
+      "points": 4
+    },
+    {
+      "code": "CUB",
+      "name": "Cuba",
+      "confederation": "CONCACAF",
+      "titles": 0,
+      "participations": 1,
+      "played": 3,
+      "won": 1,
+      "drawn": 1,
+      "lost": 1,
+      "goalsFor": 5,
+      "goalsAgainst": 12,
+      "points": 4
+    },
+    {
+      "code": "PRK",
+      "name": "RPD da Coreia",
+      "confederation": "AFC",
+      "titles": 0,
+      "participations": 2,
+      "played": 7,
+      "won": 1,
+      "drawn": 1,
+      "lost": 5,
+      "goalsFor": 6,
+      "goalsAgainst": 21,
+      "points": 4
+    },
+    {
+      "code": "NZL",
+      "name": "Nova Zelândia",
+      "confederation": "OFC",
+      "titles": 0,
+      "participations": 3,
+      "played": 9,
+      "won": 0,
+      "drawn": 4,
+      "lost": 5,
+      "goalsFor": 8,
+      "goalsAgainst": 24,
+      "points": 4
+    },
+    {
+      "code": "CPV",
+      "name": "Cabo Verde",
+      "confederation": "CAF",
+      "titles": 0,
+      "participations": 1,
+      "played": 4,
+      "won": 0,
+      "drawn": 3,
+      "lost": 1,
+      "goalsFor": 4,
+      "goalsAgainst": 5,
+      "points": 3
+    },
+    {
+      "code": "JAM",
+      "name": "Jamaica",
+      "confederation": "CONCACAF",
+      "titles": 0,
+      "participations": 1,
+      "played": 3,
+      "won": 1,
+      "drawn": 0,
+      "lost": 2,
+      "goalsFor": 3,
+      "goalsAgainst": 9,
+      "points": 3
+    },
+    {
+      "code": "HON",
+      "name": "Honduras",
+      "confederation": "CONCACAF",
+      "titles": 0,
+      "participations": 3,
+      "played": 9,
+      "won": 0,
+      "drawn": 3,
+      "lost": 6,
+      "goalsFor": 3,
+      "goalsAgainst": 14,
+      "points": 3
+    },
+    {
+      "code": "ANG",
+      "name": "Angola",
+      "confederation": "CAF",
+      "titles": 0,
+      "participations": 1,
+      "played": 3,
+      "won": 0,
+      "drawn": 2,
+      "lost": 1,
+      "goalsFor": 1,
+      "goalsAgainst": 2,
+      "points": 2
+    },
+    {
+      "code": "ISR",
+      "name": "Israel",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 1,
+      "played": 3,
+      "won": 0,
+      "drawn": 2,
+      "lost": 1,
+      "goalsFor": 1,
+      "goalsAgainst": 3,
+      "points": 2
+    },
+    {
+      "code": "ISL",
+      "name": "Islândia",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 1,
+      "played": 3,
+      "won": 0,
+      "drawn": 1,
+      "lost": 2,
+      "goalsFor": 2,
+      "goalsAgainst": 5,
+      "points": 1
+    },
+    {
+      "code": "KUW",
+      "name": "Kuwait",
+      "confederation": "AFC",
+      "titles": 0,
+      "participations": 1,
+      "played": 3,
+      "won": 0,
+      "drawn": 1,
+      "lost": 2,
+      "goalsFor": 2,
+      "goalsAgainst": 6,
+      "points": 1
+    },
+    {
+      "code": "TRI",
+      "name": "Trinidad e Tobago",
+      "confederation": "CONCACAF",
+      "titles": 0,
+      "participations": 1,
+      "played": 3,
+      "won": 0,
+      "drawn": 1,
+      "lost": 2,
+      "goalsFor": 0,
+      "goalsAgainst": 4,
+      "points": 1
+    },
+    {
+      "code": "CUW",
+      "name": "Curaçau",
+      "confederation": "CONCACAF",
+      "titles": 0,
+      "participations": 1,
+      "played": 3,
+      "won": 0,
+      "drawn": 1,
+      "lost": 2,
+      "goalsFor": 1,
+      "goalsAgainst": 9,
+      "points": 1
+    },
+    {
+      "code": "QAT",
+      "name": "Catar",
+      "confederation": "AFC",
+      "titles": 0,
+      "participations": 2,
+      "played": 6,
+      "won": 0,
+      "drawn": 1,
+      "lost": 5,
+      "goalsFor": 3,
+      "goalsAgainst": 17,
+      "points": 1
+    },
+    {
+      "code": "BOL",
+      "name": "Bolívia",
+      "confederation": "CONMEBOL",
+      "titles": 0,
+      "participations": 3,
+      "played": 6,
+      "won": 0,
+      "drawn": 1,
+      "lost": 5,
+      "goalsFor": 1,
+      "goalsAgainst": 20,
+      "points": 1
+    },
+    {
+      "code": "JOR",
+      "name": "Jordânia",
+      "confederation": "AFC",
+      "titles": 0,
+      "participations": 1,
+      "played": 3,
+      "won": 0,
+      "drawn": 0,
+      "lost": 3,
+      "goalsFor": 3,
+      "goalsAgainst": 8,
+      "points": 0
+    },
+    {
+      "code": "TOG",
+      "name": "Togo",
+      "confederation": "CAF",
+      "titles": 0,
+      "participations": 1,
+      "played": 3,
+      "won": 0,
+      "drawn": 0,
+      "lost": 3,
+      "goalsFor": 1,
+      "goalsAgainst": 6,
+      "points": 0
+    },
+    {
+      "code": "INH",
+      "name": "Índias Orientais Holandesas",
+      "confederation": "AFC",
+      "titles": 0,
+      "participations": 1,
+      "played": 1,
+      "won": 0,
+      "drawn": 0,
+      "lost": 1,
+      "goalsFor": 0,
+      "goalsAgainst": 6,
+      "points": 0
+    },
+    {
+      "code": "SCG",
+      "name": "Sérvia e Montenegro",
+      "confederation": "UEFA",
+      "titles": 0,
+      "participations": 1,
+      "played": 3,
+      "won": 0,
+      "drawn": 0,
+      "lost": 3,
+      "goalsFor": 2,
+      "goalsAgainst": 10,
+      "points": 0
+    },
+    {
+      "code": "UAE",
+      "name": "Emirados Árabes Unidos",
+      "confederation": "AFC",
+      "titles": 0,
+      "participations": 1,
+      "played": 3,
+      "won": 0,
+      "drawn": 0,
+      "lost": 3,
+      "goalsFor": 2,
+      "goalsAgainst": 11,
+      "points": 0
+    },
+    {
+      "code": "UZB",
+      "name": "Uzbequistão",
+      "confederation": "AFC",
+      "titles": 0,
+      "participations": 1,
+      "played": 3,
+      "won": 0,
+      "drawn": 0,
+      "lost": 3,
+      "goalsFor": 2,
+      "goalsAgainst": 11,
+      "points": 0
+    },
+    {
+      "code": "CHN",
+      "name": "RP da China",
+      "confederation": "AFC",
+      "titles": 0,
+      "participations": 1,
+      "played": 3,
+      "won": 0,
+      "drawn": 0,
+      "lost": 3,
+      "goalsFor": 0,
+      "goalsAgainst": 9,
+      "points": 0
+    },
+    {
+      "code": "PAN",
+      "name": "Panamá",
+      "confederation": "CONCACAF",
+      "titles": 0,
+      "participations": 2,
+      "played": 6,
+      "won": 0,
+      "drawn": 0,
+      "lost": 6,
+      "goalsFor": 2,
+      "goalsAgainst": 15,
+      "points": 0
+    },
+    {
+      "code": "IRQ",
+      "name": "Iraque",
+      "confederation": "AFC",
+      "titles": 0,
+      "participations": 2,
+      "played": 6,
+      "won": 0,
+      "drawn": 0,
+      "lost": 6,
+      "goalsFor": 2,
+      "goalsAgainst": 16,
+      "points": 0
+    },
+    {
+      "code": "ZAI",
+      "name": "Zaire",
+      "confederation": "CAF",
+      "titles": 0,
+      "participations": 1,
+      "played": 3,
+      "won": 0,
+      "drawn": 0,
+      "lost": 3,
+      "goalsFor": 0,
+      "goalsAgainst": 14,
+      "points": 0
+    },
+    {
+      "code": "HAI",
+      "name": "Haiti",
+      "confederation": "CONCACAF",
+      "titles": 0,
+      "participations": 2,
+      "played": 6,
+      "won": 0,
+      "drawn": 0,
+      "lost": 6,
+      "goalsFor": 4,
+      "goalsAgainst": 22,
+      "points": 0
+    },
+    {
+      "code": "SLV",
+      "name": "El Salvador",
+      "confederation": "CONCACAF",
+      "titles": 0,
+      "participations": 2,
+      "played": 6,
+      "won": 0,
+      "drawn": 0,
+      "lost": 6,
+      "goalsFor": 1,
+      "goalsAgainst": 22,
+      "points": 0
+    }
+  ]
+}
