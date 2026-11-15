@@ -3,6 +3,7 @@ import Loading from '@/components/Loading';
 import { useQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
+import { useEdition } from '@/contexts/EditionContext';
 import Flag from '@/components/Flag';
 import NativeSelect from '@/components/NativeSelect';
 import { Card } from '@/components/ui/card';
@@ -42,7 +43,7 @@ const torneio = (nome: string) => TORNEIO.find(([re]) => re.test(nome))?.[1] ?? 
 
 const date = (iso: string) => iso.split('-').reverse().join('/');
 
-/** Linha do gráfico de barras espelhado: uma seleção de cada lado, o nome da estatística no meio. */
+/** Linha do gráfico espelhado: nome da estatística em cima, valores nas pontas e as barras se encontram no meio. */
 function BarRow({
   label, va, vb, text, testId = 'cmp-bar-row',
 }: {
@@ -54,27 +55,22 @@ function BarRow({
 }) {
   const max = Math.max(va ?? 0, vb ?? 0, 0.0001);
   const w = (v: number | undefined) => `${((v ?? 0) / max) * 100}%`;
-  const winA = va !== undefined && vb !== undefined && va > vb;
-  const winB = va !== undefined && vb !== undefined && vb > va;
   return (
-    <div
-      data-testid={testId}
-      className="grid grid-cols-[1fr_8.5rem_1fr] items-center gap-2 border-t border-[#1E293B] py-1.5 text-sm sm:grid-cols-[1fr_11rem_1fr]"
-    >
-      <div className="flex items-center justify-end gap-2">
-        <span className={`tabular-nums ${winA ? 'font-bold text-white' : 'text-[#CBD5E1]'}`}>
+    <div data-testid={testId} className="px-1 pb-3 pt-1 sm:px-2">
+      <div className="mb-1 text-center text-xs text-[#7FA2D6] sm:text-[13px]">{label}</div>
+      <div className="flex items-center gap-3 sm:gap-4">
+        <span className="w-12 shrink-0 text-right text-base font-bold tabular-nums text-white sm:w-14 sm:text-lg">
           {va === undefined ? '—' : text(va)}
         </span>
-        <div className="flex h-4 w-1/2 justify-end overflow-hidden rounded-l-full bg-[#0B1020]">
-          <div className="h-full rounded-l-full bg-[#1D4ED8]" style={{ width: w(va) }} />
+        <div className="grid h-1.5 flex-1 grid-cols-2 sm:h-2">
+          <div className="flex justify-end overflow-hidden rounded-l-full bg-[#1B2438]">
+            <div className="h-full bg-[#D4AF37] transition-[width] duration-500" style={{ width: w(va) }} />
+          </div>
+          <div className="flex overflow-hidden rounded-r-full bg-[#1B2438]">
+            <div className="h-full bg-[#3B82F6] transition-[width] duration-500" style={{ width: w(vb) }} />
+          </div>
         </div>
-      </div>
-      <div className="text-center text-[#CBD5E1]">{label}</div>
-      <div className="flex items-center gap-2">
-        <div className="flex h-4 w-1/2 overflow-hidden rounded-r-full bg-[#0B1020]">
-          <div className="h-full rounded-r-full bg-[#EF4444]" style={{ width: w(vb) }} />
-        </div>
-        <span className={`tabular-nums ${winB ? 'font-bold text-white' : 'text-[#CBD5E1]'}`}>
+        <span className="w-12 shrink-0 text-left text-base font-bold tabular-nums text-white sm:w-14 sm:text-lg">
           {vb === undefined ? '—' : text(vb)}
         </span>
       </div>
@@ -88,14 +84,22 @@ export default function Comparison() {
   const [params, setParams] = useSearchParams();
   const [kind, setKind] = useState<string | null>(null); // null = todas as competições
 
-  const codes = useMemo(() => new Set(file?.teams.map((t) => t.code)), [file]);
+  // Copa: todas as seleções do histórico; outras competições (Nations League): só as que participam da edição.
+  const edition = useEdition();
+  const teams = useMemo(() => {
+    if (!file) return [];
+    if (edition.competition === 'copa') return file.teams;
+    const daEdicao = new Set(edition.data.teams.map((t) => t.code));
+    return file.teams.filter((t) => daEdicao.has(t.code));
+  }, [file, edition]);
+  const codes = useMemo(() => new Set(teams.map((t) => t.code)), [teams]);
   const pick = (v: string | null, fallback: string) => (v && codes.has(v) ? v : fallback);
-  const first = file?.teams[0]?.code ?? '';
-  const a = pick(params.get('a'), codes.has('BRA') ? 'BRA' : first);
-  const b = pick(params.get('b'), codes.has('GER') ? 'GER' : (file?.teams[1]?.code ?? first));
+  const first = teams[0]?.code ?? '';
+  const a = pick(params.get('a'), ['BRA', 'ESP'].find((c) => codes.has(c)) ?? first);
+  const b = pick(params.get('b'), ['GER', 'POR'].find((c) => codes.has(c) && c !== a) ?? (teams.find((t) => t.code !== a)?.code ?? first));
 
-  const teamA = file?.teams.find((t) => t.code === a);
-  const teamB = file?.teams.find((t) => t.code === b);
+  const teamA = teams.find((t) => t.code === a);
+  const teamB = teams.find((t) => t.code === b);
   const h2h = useMemo(() => (file && a !== b ? headToHead(file, a, b) : null), [file, a, b]);
   const ps = useMemo(() => pairStats(h2h?.meetings ?? [], kind), [h2h, kind]);
   const copa = useMemo(() => (file && a !== b ? copaPairStats(file, a, b) : null), [file, a, b]);
@@ -117,7 +121,7 @@ export default function Comparison() {
       value={value}
       onChange={(e) => setTeam(key, e.target.value)}
     >
-      {file?.teams.map((t) => (
+      {teams.map((t) => (
         <option key={t.code} value={t.code}>
           {t.name}
         </option>

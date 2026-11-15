@@ -7,6 +7,7 @@ const file = {
     { code: 'BRA', name: 'Brasil', history: 'Brazil' },
     { code: 'GER', name: 'Alemanha', history: 'Germany' },
     { code: 'ARG', name: 'Argentina', history: 'Argentina' },
+    { code: 'ESP', name: 'Espanha', history: 'Spain' },
   ],
   tournaments: ['Friendly', 'FIFA World Cup'],
   matches: [
@@ -125,5 +126,29 @@ test.describe('comparação entre seleções', () => {
     await page.locator('nav').getByRole('link', { name: 'Comparação' }).first().click();
     await expect(page).toHaveURL(/\/nations-league\/2027\/comparacao$/);
     await expect(page.getByTestId('comparison-page')).toBeVisible();
+  });
+
+  test('Nations League: só as seleções da edição; Copa: todas do histórico', async ({ page }) => {
+    await page.route('**/data/editions/nations-league-2027.json', (r) =>
+      r.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          generatedAt: '2026-11-14T12:00:00Z',
+          teams: [
+            { code: 'ESP', name: 'Espanha', group: 'A1' },
+            { code: 'GER', name: 'Alemanha', group: 'A1' },
+          ],
+          groups: [{ name: 'A1', standings: [] }],
+          matches: [],
+        }),
+      }),
+    );
+    await setup(page, '/nations-league/2027/comparacao');
+    const opcoes = page.getByTestId('cmp-a').locator('option');
+    await expect(opcoes.filter({ hasText: 'Espanha' })).toHaveCount(1);
+    await expect(opcoes.filter({ hasText: 'Brasil' })).toHaveCount(0);
+    await page.goto('/copa/2026/comparacao');
+    await expect(page.getByTestId('cmp-a').locator('option').filter({ hasText: 'Brasil' })).toHaveCount(1);
   });
 });
