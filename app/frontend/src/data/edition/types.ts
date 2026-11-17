@@ -43,8 +43,7 @@ export const editionSnapshotSchema = z.object({
   groups: z
     .array(
       z.object({ name: z.string().min(1), standings: z.array(standingSchema) }),
-    )
-    .min(1),
+    ),
   matches: z.array(matchSchema),
 });
 

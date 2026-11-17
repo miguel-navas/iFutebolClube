@@ -46,7 +46,16 @@ ETAPAS = {
     "semi-finals": "Semifinal",
     "play-off for third place": "Disputa do terceiro lugar",
     "third place": "Disputa do terceiro lugar",
+    "third-place match": "Disputa do terceiro lugar",
+    "3rd place": "Disputa do terceiro lugar",
+    "match for third place": "Disputa do terceiro lugar",
     "final": "Final",
+    "final round": "Fase final (grupo)",
+    "preliminary round": "Rodada preliminar",
+    "1st round": "Primeira rodada",
+    "first round": "Primeira rodada",
+    "second round": "Segunda fase",
+    "second group stage": "Segunda fase de grupos",
 }
 
 SQL_CLASSIFICACAO = """

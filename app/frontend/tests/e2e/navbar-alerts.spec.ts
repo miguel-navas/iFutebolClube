@@ -5,7 +5,7 @@ test.describe('barra de navegação', () => {
     await page.goto('/copa/2026/grupos');
     await expect(page.getByTestId('edition-label')).toHaveText('World Cup 2026');
     const options = page.getByLabel('Edição').locator('option');
-    await expect(options).toHaveCount(1);
+    await expect(options).toHaveCount(23);
     await expect(options.first()).toHaveText('2026');
     await page.getByTestId('hub-link').click();
     await expect(page).toHaveURL(/\/$/);

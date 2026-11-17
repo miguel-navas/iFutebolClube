@@ -16,10 +16,26 @@ test.describe('menu lateral', () => {
     await expect(menu.getByTestId('menu-em-breve')).toHaveCount(0);
   });
 
-  test('Eurocopa mostra "Em breve" e nenhuma edição', async ({ page }) => {
+  test('clicar na competição aberta recolhe as edições e clicar de novo abre', async ({ page }) => {
     await page.goto('/eurocopa');
-    await expect(page.getByTestId('menu-em-breve')).toHaveText('Em breve');
+    const link = page.getByTestId('menu-competition-eurocopa');
+    await expect(page.getByTestId('edition-2024')).toBeVisible();
+    await link.click();
     await expect(page.locator('[data-testid^="edition-"]')).toHaveCount(0);
+    await expect(link).toHaveAttribute('aria-expanded', 'false');
+    await link.click();
+    await expect(page.getByTestId('edition-2024')).toBeVisible();
+    // trocar de competição abre a outra normalmente
+    await page.getByTestId('menu-competition-nations-league').click();
+    await expect(page).toHaveURL(/\/nations-league$/);
+    await expect(page.getByTestId('edition-2027')).toBeVisible();
+  });
+
+  test('Eurocopa lista as edições e não mostra "Em breve"', async ({ page }) => {
+    await page.goto('/eurocopa');
+    await expect(page.getByTestId('menu-em-breve')).toHaveCount(0);
+    await expect(page.locator('[data-testid^="edition-"]')).toHaveCount(17);
+    await expect(page.getByTestId('edition-2024')).toBeVisible();
   });
 
   test('recolher esconde os links, mantém o botão, e o estado sobrevive ao recarregar', async ({ page }) => {
