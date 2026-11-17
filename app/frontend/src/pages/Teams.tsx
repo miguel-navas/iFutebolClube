@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Flag from "@/components/Flag";
 import { useEdition, useEditionPath } from "@/contexts/EditionContext";
+import EditionNotes from "@/components/EditionNotes";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Search, ChevronRight } from "lucide-react";
@@ -43,8 +44,9 @@ export default function TeamsPage() {
       <div className="w-full px-4 sm:px-6 lg:px-8 2xl:px-12 pt-24 pb-20">
         <div className="mb-8">
           <h1 className="text-3xl font-extrabold text-white">Seleções</h1>
-          <p className="text-[#94A3B8] mt-1">{teams.length} seleções classificadas para a Copa do Mundo {edition.year} · Clique para ver o elenco</p>
+          <p className="text-[#94A3B8] mt-1">{edition.competition === "copa" ? `${teams.length} seleções classificadas para a Copa do Mundo ${edition.year}` : `${teams.length} seleções · ${edition.label}`} · Clique para ver o elenco</p>
         </div>
+        <EditionNotes section="selecoes" />
 
         {/* Search */}
         <div className="relative mb-6 max-w-md">

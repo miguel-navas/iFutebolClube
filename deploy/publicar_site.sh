@@ -33,7 +33,8 @@ rsync -a --exclude '/data' "$TMP/site/" "$DEST/"
 if [ -d "$TMP/site/data" ]; then
   rsync -a --exclude 'editions/' --exclude 'stats/' "$TMP/site/data/" "$SITE/data/"
   if [ "$COM_DADOS" -eq 1 ]; then
-    rsync -a "$TMP/site/data/" "$SITE/data/"
+    # A edição em andamento da Nations League é atualizada pelo cron da VM: não sobrescrever com a cópia do PC.
+    rsync -a --exclude 'editions/nations-league-2027*' "$TMP/site/data/" "$SITE/data/"
     echo "Dados do pacote copiados para $SITE/data"
   fi
 fi
@@ -56,6 +57,13 @@ if [ -d "$TMP/sqlite" ]; then
   ls -1t "$APP"/data/sqlite-backup/* 2>/dev/null | tail -n +7 | xargs -r rm -f
   rsync -a "$TMP/sqlite/" "$APP/data/sqlite/"
   echo "SQLite atualizado em $APP/data/sqlite"
+fi
+
+# O publicar roda com sudo (root), mas os agentes e exportadores da VM rodam pelo cron com o usuário normal.
+# Devolve a posse dos arquivos gravados para esse usuário; sem isso o cron falha com "Permission denied".
+DONO="${SUDO_USER:-}"
+if [ -n "$DONO" ] && [ "$DONO" != "root" ]; then
+  chown -R "$DONO:$DONO" "$SITE/data" "$APP/data" "$APP/scripts" 2>/dev/null || true
 fi
 
 ln -sfn "$DEST" "$SITE/current"

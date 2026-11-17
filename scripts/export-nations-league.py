@@ -213,6 +213,8 @@ ETAPAS = {
     "semi-finals": "Semifinal",
     "play-off for third place": "Disputa do terceiro lugar",
     "third place": "Disputa do terceiro lugar",
+    "third-place match": "Disputa do terceiro lugar",
+    "3rd place": "Disputa do terceiro lugar",
     "final": "Final",
     "play-offs": "Playoffs",
     "play-off": "Playoffs",

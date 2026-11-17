@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import { useEdition, useEditionPath } from "@/contexts/EditionContext";
+import EditionNotes from "@/components/EditionNotes";
 import GroupMatches from "@/components/GroupMatches";
 import FilterSelect from "@/components/FilterSelect";
 import { Card } from "@/components/ui/card";
@@ -8,7 +9,8 @@ import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 export default function GroupsPage() {
-  const { data } = useEdition();
+  const edition = useEdition();
+  const { data } = edition;
   const editionPath = useEditionPath();
   const { groups, getGroupStandings, getMatchesByGroup } = data;
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
@@ -22,8 +24,9 @@ export default function GroupsPage() {
       <div className="w-full px-4 sm:px-6 lg:px-8 2xl:px-12 pt-24 pb-20">
         <div className="mb-8">
           <h1 className="text-3xl font-extrabold text-white">Fase de Grupos</h1>
-          <p className="text-[#94A3B8] mt-1">12 grupos · 4 seleções por grupo · Os 2 primeiros avançam</p>
+          <p className="text-[#94A3B8] mt-1">{edition.competition === "copa" && edition.year === "2026" ? "12 grupos · 4 seleções por grupo · Os 2 primeiros avançam" : `${groups.length} grupos`}</p>
         </div>
+        <EditionNotes section="grupos" />
 
         {/* Celular: filtro em lista */}
         <div className="mb-6 md:hidden" data-testid="group-filter-mobile">

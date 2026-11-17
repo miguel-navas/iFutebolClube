@@ -101,3 +101,22 @@
   }
 
 }
+
+/* Barra de rolagem discreta (menu lateral) */
+.scroll-sutil {
+  scrollbar-width: thin;
+  scrollbar-color: #1e293b transparent;
+}
+.scroll-sutil::-webkit-scrollbar {
+  width: 4px;
+}
+.scroll-sutil::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-sutil::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 999px;
+}
+.scroll-sutil:hover::-webkit-scrollbar-thumb {
+  background: #334155;
+}

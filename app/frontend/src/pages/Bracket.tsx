@@ -8,6 +8,7 @@ import type { Stadium, BracketMatch } from '@/data/worldCupData';
 import { sameStadium } from '@/data/stadiumAliases';
 import type { EditionDataset } from '@/data/registry';
 import { useEdition, useEditionPath } from '@/contexts/EditionContext';
+import EditionNotes from '@/components/EditionNotes';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Users, Trophy, Calendar, X, ChevronRight } from 'lucide-react';
@@ -440,6 +441,8 @@ export default function BracketPage() {
               </div>
 
             </div>
+
+            <EditionNotes section="eliminatorias" />
 
             {bracketMatches.length === 0 && (
               <p

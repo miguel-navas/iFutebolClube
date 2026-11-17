@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import CountdownTimer from "@/components/CountdownTimer";
 import { useEdition, useEditionPath } from "@/contexts/EditionContext";
+import EditionNotes from "@/components/EditionNotes";
+import EditionSummary from "@/components/EditionSummary";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, ArrowRight, Trophy, Users, LayoutGrid, Bell, BellOff } from "lucide-react";
@@ -95,11 +97,19 @@ export default function HomePage() {
             </div>
 
             <div className="flex-shrink-0 hidden lg:block">
-              <img src={TROPHY_IMG} alt="FIFA Trophy" className="w-64 h-64 object-contain drop-shadow-2xl animate-pulse" style={{ animationDuration: "3s" }} />
+              {edition.poster ? (
+                <img src={edition.poster} alt={`Pôster da ${edition.label}`} data-testid="edition-poster" className="h-72 w-auto rounded-xl object-contain shadow-2xl" />
+              ) : (
+                <img src={TROPHY_IMG} alt="FIFA Trophy" className="w-64 h-64 object-contain drop-shadow-2xl animate-pulse" style={{ animationDuration: "3s" }} />
+              )}
             </div>
           </div>
         </div>
       </section>
+
+      <div className="w-full px-4 sm:px-6 lg:px-8 2xl:px-12 mt-6 mb-10 relative z-20">
+        <EditionNotes section="overview" />
+      </div>
 
       {/* Stats Bar */}
       <section className="relative -mt-6 z-10 w-full px-4 sm:px-6 lg:px-8 2xl:px-12">
@@ -120,6 +130,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <EditionSummary />
 
       {/* Upcoming Matches */}
       <section className="w-full px-4 sm:px-6 lg:px-8 2xl:px-12 py-16">

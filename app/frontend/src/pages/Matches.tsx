@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import Navbar from "@/components/Navbar";
 import { Link } from "react-router-dom";
 import { useEdition, useEditionPath } from "@/contexts/EditionContext";
+import EditionNotes from "@/components/EditionNotes";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Filter, Bell, BellOff } from "lucide-react";
@@ -10,14 +11,14 @@ import { useAlerts } from "@/hooks/useAlerts";
 import FilterSelect from "@/components/FilterSelect";
 
 export default function MatchesPage() {
-  const { data } = useEdition();
+  const { data, ...edition } = useEdition();
   const path = useEditionPath();
   const { matches, teams, groups, getMatchDates } = data;
   const [selectedGroup, setSelectedGroup] = useState<string>("Todos");
   const [selectedDate, setSelectedDate] = useState<string>("Todos");
   const { isAlerted, toggleAlert, alertCount } = useAlerts();
 
-  const allDates = useMemo(() => getMatchDates(), []);
+  const allDates = useMemo(() => getMatchDates(), [matches]);
 
   const filteredMatches = useMemo(() => {
     return matches.filter((m) => {
@@ -25,7 +26,7 @@ export default function MatchesPage() {
       if (selectedDate !== "Todos" && m.date !== selectedDate) return false;
       return true;
     });
-  }, [selectedGroup, selectedDate]);
+  }, [matches, selectedGroup, selectedDate]);
 
   const groupedByDate = useMemo(() => {
     const map = new Map<string, typeof matches>();
@@ -44,7 +45,7 @@ export default function MatchesPage() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-extrabold text-white">Calendário de Jogos</h1>
-            <p className="text-[#94A3B8] mt-1">Todos os jogos da Copa do Mundo FIFA 2026</p>
+            <p className="text-[#94A3B8] mt-1">{edition.competition === 'copa' ? 'Todos os jogos da Copa do Mundo FIFA 2026' : `Todos os jogos · ${edition.label}`}</p>
           </div>
           {alertCount > 0 && (
             <div className="flex items-center gap-2 bg-[#D4AF37]/10 px-3 py-1.5 rounded-lg">
@@ -55,6 +56,8 @@ export default function MatchesPage() {
             </div>
           )}
         </div>
+
+        <EditionNotes section="jogos" />
 
         {/* Filters */}
         <div className="hidden md:flex flex-wrap gap-3 mb-8">

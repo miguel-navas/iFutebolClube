@@ -3,9 +3,9 @@ import { test, expect } from '../fixtures';
 test('hub mostra três competições', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByTestId(/^competition-/)).toHaveCount(3);
-  await expect(page.getByTestId('competition-copa')).toContainText('1 edição');
-  await expect(page.getByTestId('competition-eurocopa')).toContainText('Em breve');
-  await expect(page.getByTestId('competition-nations-league')).toContainText('1 edição');
+  await expect(page.getByTestId('competition-copa')).toContainText('23 edições');
+  await expect(page.getByTestId('competition-eurocopa')).toContainText('17 edições');
+  await expect(page.getByTestId('competition-nations-league')).toContainText('5 edições');
 });
 
 for (const slug of ['copa', 'eurocopa', 'nations-league']) {
@@ -16,20 +16,18 @@ for (const slug of ['copa', 'eurocopa', 'nations-league']) {
   });
 }
 
-test('/copa lista 2026 e abre a edição', async ({ page }) => {
+test('/copa lista as 23 edições e abre a de 2026', async ({ page }) => {
   await page.goto('/copa');
-  await expect(page.getByTestId(/^edition-/)).toHaveCount(1);
+  await expect(page.getByTestId(/^edition-/)).toHaveCount(23);
   await page.getByTestId('edition-2026').click();
   await expect(page).toHaveURL(/\/copa\/2026$/);
 });
 
-for (const slug of ['eurocopa']) {
-  test(`/${slug} mostra estado vazio com link ao hub`, async ({ page }) => {
-    await page.goto(`/${slug}`);
-    await expect(page.getByTestId('empty-editions')).toBeVisible();
-    await expect(page.getByRole('link', { name: /Todas as competições/ })).toHaveAttribute('href', '/');
-  });
-}
+test('/eurocopa lista as 17 edições, da mais recente à mais antiga', async ({ page }) => {
+  await page.goto('/eurocopa');
+  await expect(page.getByTestId('empty-editions')).toHaveCount(0);
+  await expect(page.getByRole('link', { name: /Todas as competições/ })).toHaveAttribute('href', '/');
+});
 
 test('links das competições ficam acima do dashboard e em linha compacta', async ({ page }) => {
   await page.route('**/data/stats/copa.json', (r) => r.fulfill({ status: 404, body: '' }));
@@ -45,9 +43,9 @@ test('links das competições ficam acima do dashboard e em linha compacta', asy
   expect(boxes[0]!.y + boxes[0]!.height).toBeLessThanOrEqual(area!.y);
 });
 
-test('/nations-league lista 2026/27 e abre a edição', async ({ page }) => {
+test('/nations-league lista 5 edições e abre a edição', async ({ page }) => {
   await page.goto('/nations-league');
-  await expect(page.getByTestId(/^edition-/)).toHaveCount(1);
+  await expect(page.getByTestId(/^edition-/)).toHaveCount(5);
   await page.getByTestId('edition-2027').click();
   await expect(page).toHaveURL(/\/nations-league\/2027$/);
 });

@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Home, Menu, PanelLeftClose, Trophy } from 'lucide-react';
 import { listAvailableEditions, listCompetitions } from '@/data/registry';
@@ -51,6 +51,9 @@ export function SideMenuToggle({ open, onToggle }: { open: boolean; onToggle: ()
 
 export default function SideMenu({ open, competition = '' }: { open: boolean; competition?: string }) {
   const competitions = listCompetitions();
+  // Clicar na competição que já está aberta recolhe as edições; ao trocar de competição volta a abrir.
+  const [recolhida, setRecolhida] = useState(false);
+  useEffect(() => setRecolhida(false), [competition]);
 
   return (
     <aside
@@ -62,7 +65,7 @@ export default function SideMenu({ open, competition = '' }: { open: boolean; co
       }`}
     >
       {open && (
-        <nav className="flex h-full w-64 flex-col gap-6 overflow-y-auto px-4 pb-6 pt-16">
+        <nav className="scroll-sutil flex h-full w-64 flex-col gap-6 overflow-y-auto px-4 pb-6 pt-16">
           <div className="flex items-center gap-2 px-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#D4AF37] to-[#B8960C]">
               <Trophy className="h-4 w-4 text-[#0A0F1C]" />
@@ -87,12 +90,20 @@ export default function SideMenu({ open, competition = '' }: { open: boolean; co
             <ul className="flex flex-col gap-1">
               {competitions.map((c) => {
                 const current = c.slug === competition;
-                const editions = current ? listAvailableEditions(c.slug) : [];
+                const aberta = current && !recolhida;
+                const editions = aberta ? listAvailableEditions(c.slug) : [];
                 return (
                   <li key={c.slug}>
                     <Link
                       to={`/${c.slug}`}
                       aria-current={current ? 'page' : undefined}
+                      aria-expanded={current ? aberta : undefined}
+                      onClick={(e) => {
+                        if (current) {
+                          e.preventDefault();
+                          setRecolhida((r) => !r);
+                        }
+                      }}
                       data-testid={`menu-competition-${c.slug}`}
                       className={`block rounded-lg px-2 py-2 text-sm font-semibold ${
                         current ? 'bg-[#D4AF37]/15 text-[#D4AF37]' : 'text-[#94A3B8] hover:bg-white/5 hover:text-white'
@@ -100,7 +111,7 @@ export default function SideMenu({ open, competition = '' }: { open: boolean; co
                     >
                       {c.name}
                     </Link>
-                    {current && (
+                    {aberta && (
                       <ul className="mb-1 ml-3 mt-1 flex flex-col gap-0.5 border-l border-[#1E293B] pl-3">
                         {editions.length === 0 ? (
                           <li className="px-2 py-1 text-xs text-[#94A3B8]" data-testid="menu-em-breve">
