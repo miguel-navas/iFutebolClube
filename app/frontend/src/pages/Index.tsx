@@ -258,8 +258,8 @@ export default function HomePage() {
           {[
             { to: path("selecoes"), icon: Users, title: `${teams.length} Seleções`, desc: "Conheça todas as seleções classificadas", color: "#3B82F6" },
             { to: path("eliminatorias"), icon: Trophy, title: "Fase Eliminatória", desc: "Chaveamento das oitavas à final", color: "#D4AF37" },
-            { to: path("estadios"), icon: MapPin, title: `${stadiums.length} Estádios`, desc: "Cidades-sede nos 3 países", color: "#22C55E" },
-          ].map((link) => (
+            { to: path("estadios"), icon: MapPin, title: `${stadiums.length} Estádios`, desc: edition.competition === "copa" && edition.year === "2026" ? "Cidades-sede nos 3 países" : "Onde foram os jogos", color: "#22C55E" },
+          ].filter((l) => !l.to.endsWith("/estadios") || edition.sections.includes("estadios")).map((link) => (
             <Link key={link.to} to={link.to}>
               <Card className="bg-[#131A2E] border-[#1E293B] p-6 hover:border-[#D4AF37]/30 transition-all group cursor-pointer h-full">
                 <link.icon className="w-8 h-8 mb-3" style={{ color: link.color }} />

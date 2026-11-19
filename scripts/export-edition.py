@@ -49,6 +49,7 @@ ETAPAS = {
     "third-place match": "Disputa do terceiro lugar",
     "3rd place": "Disputa do terceiro lugar",
     "match for third place": "Disputa do terceiro lugar",
+    "bronze final": "Disputa do terceiro lugar",
     "final": "Final",
     "final round": "Fase final (grupo)",
     "preliminary round": "Rodada preliminar",

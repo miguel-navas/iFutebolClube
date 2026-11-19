@@ -6,6 +6,7 @@ import BracketTree from '@/components/bracket/BracketTree';
 import { buildTreeLayout, roundRank } from '@/components/bracket/layout';
 import type { Stadium, BracketMatch } from '@/data/worldCupData';
 import { sameStadium } from '@/data/stadiumAliases';
+import { useStadiumInfo } from '@/data/stadiumPhotos';
 import type { EditionDataset } from '@/data/registry';
 import { useEdition, useEditionPath } from '@/contexts/EditionContext';
 import EditionNotes from '@/components/EditionNotes';
@@ -220,6 +221,9 @@ function StadiumModal({
   const navigate = useNavigate();
   const stadiumMatches = getStadiumMatches(data, stadium.name);
   const countryColors = COUNTRY_COLORS;
+  const info = useStadiumInfo()(stadium.name, stadium.city);
+  const [fotoAtual, setFotoAtual] = useState(0);
+  const photo = info?.photos[fotoAtual] ?? info?.photos[0] ?? null;
 
   return (
     <div
@@ -231,9 +235,42 @@ function StadiumModal({
 
       {/* Modal */}
       <div
-        className="relative bg-[#0A0F1C] border border-[#1E293B] rounded-2xl w-full max-w-2xl max-h-[85vh] overflow-hidden shadow-2xl animate-in fade-in zoom-in-95 duration-200"
+        className="relative bg-[#0A0F1C] border border-[#1E293B] rounded-2xl w-full max-w-2xl max-h-[85vh] overflow-y-auto shadow-2xl animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
+        {photo && (
+          <div className="relative">
+            <img src={photo.url} alt={stadium.name} className="h-56 w-full object-cover" data-testid="stadium-photo" />
+            {info && info.photos.length > 1 && (
+              <div className="absolute bottom-6 left-2 flex gap-1.5">
+                {info.photos.map((p, n) => (
+                  <button
+                    key={p.url}
+                    type="button"
+                    data-testid="stadium-thumb"
+                    aria-label={`Foto ${n + 1}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setFotoAtual(n);
+                    }}
+                    className={`h-10 w-14 overflow-hidden rounded border-2 ${n === fotoAtual ? 'border-[#D4AF37]' : 'border-white/30'}`}
+                  >
+                    <img src={p.url} alt="" className="h-full w-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            )}
+            <a
+              href={photo.source}
+              target="_blank"
+              rel="noreferrer"
+              className="absolute bottom-0 right-0 max-w-full truncate rounded-tl bg-black/60 px-2 py-0.5 text-[10px] text-[#CBD5E1] hover:text-white"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Foto: {photo.author} · {photo.license}
+            </a>
+          </div>
+        )}
         {/* Header */}
         <div className="px-6 py-5 border-b border-[#1E293B] bg-[#131A2E]">
           <div className="flex items-start justify-between">
@@ -247,16 +284,20 @@ function StadiumModal({
                   <div className="flex items-center gap-1 text-[#94A3B8]">
                     <MapPin className="w-3 h-3" />
                     <span className="text-xs">
-                      {stadium.city}, {stadium.country}
+                      {stadium.country ? `${stadium.city}, ${stadium.country}` : stadium.city}
                     </span>
                   </div>
-                  <span className="text-[#1E293B]">·</span>
-                  <div className="flex items-center gap-1 text-[#94A3B8]">
-                    <Users className="w-3 h-3" />
-                    <span className="text-xs">
-                      {stadium.capacity.toLocaleString('pt-BR')}
-                    </span>
-                  </div>
+                  {stadium.capacity > 0 && (
+                    <>
+                      <span className="text-[#1E293B]">·</span>
+                      <div className="flex items-center gap-1 text-[#94A3B8]">
+                        <Users className="w-3 h-3" />
+                        <span className="text-xs">
+                          {stadium.capacity.toLocaleString('pt-BR')}
+                        </span>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -269,8 +310,57 @@ function StadiumModal({
           </div>
         </div>
 
+        {/* Sobre o estádio */}
+        <div className="px-6 pt-4" data-testid="stadium-about">
+          <h3 className="mb-2 flex items-center gap-2 text-sm font-bold text-white">
+            <MapPin className="h-4 w-4 text-[#D4AF37]" />
+            Sobre o estádio
+          </h3>
+          <ul className="mb-2 space-y-0.5 text-xs text-[#CBD5E1]">
+            <li>
+              <span className="font-semibold text-white">Localização:</span>{' '}
+              {stadium.country ? `${stadium.city}, ${stadium.country}` : stadium.city}
+              {info?.lat != null && info?.lon != null && (
+                <>
+                  {' · '}
+                  <a
+                    href={`https://www.openstreetmap.org/?mlat=${info.lat}&mlon=${info.lon}#map=16/${info.lat}/${info.lon}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[#D4AF37] hover:underline"
+                  >
+                    ver no mapa
+                  </a>
+                </>
+              )}
+            </li>
+            {stadium.capacity > 0 && (
+              <li>
+                <span className="font-semibold text-white">Capacidade:</span>{' '}
+                {stadium.capacity.toLocaleString('pt-BR')}
+              </li>
+            )}
+          </ul>
+          {info?.description ? (
+            <>
+              <p className="text-sm leading-relaxed text-[#CBD5E1]" data-testid="stadium-description">
+                {info.description}
+              </p>
+              <p className="mt-1 text-[10px] text-[#94A3B8]">
+                Texto:{' '}
+                <a href={info.descriptionSource} target="_blank" rel="noreferrer" className="hover:underline">
+                  Wikipédia ({info.descriptionLang === 'pt' ? 'português' : 'inglês'})
+                </a>{' '}
+                · CC BY-SA
+              </p>
+            </>
+          ) : (
+            <p className="text-xs text-[#94A3B8]">Sem texto disponível para este estádio.</p>
+          )}
+        </div>
+
         {/* Matches List */}
-        <div className="px-6 py-4 overflow-y-auto max-h-[60vh]">
+        <div className="px-6 py-4">
           <div className="flex items-center gap-2 mb-4">
             <Calendar className="w-4 h-4 text-[#D4AF37]" />
             <h3 className="text-sm font-bold text-white">
@@ -394,12 +484,13 @@ export default function BracketPage() {
   const { data } = edition;
   const { bracketMatches, stadiums } = data;
   const [selectedStadium, setSelectedStadium] = useState<Stadium | null>(null);
+  const photoFor = useStadiumInfo();
 
   // A aba vem do endereço: .../estadios ou .../eliminatorias
   const tab = pathname.replace(/\/+$/, '').endsWith('/estadios')
     ? 'stadiums'
     : 'bracket';
-  const countries = [...new Set(stadiums.map((st) => st.country))];
+  const countries = [...new Set(stadiums.map((st) => st.country))].filter(Boolean);
   const finalDate = edition.finalVenue
     ? new Date(edition.finalVenue.date + 'T00:00:00').toLocaleDateString(
       'pt-BR',
@@ -476,14 +567,15 @@ export default function BracketPage() {
                 Estádios & Cidades-Sede
               </h1>
               <p className="text-[#94A3B8] mt-1">
-                {stadiums.length} estádios em {countries.length}{' '}
-                {countries.length === 1 ? 'país' : 'países'} · Clique para ver
-                os jogos
+                {stadiums.length} estádios
+                {countries.length > 0 &&
+                  ` em ${countries.length} ${countries.length === 1 ? 'país' : 'países'}`}{' '}
+                · Clique para ver os jogos
               </p>
             </div>
 
             {/* Country Summary */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+            <div className={`grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 ${countries.length === 0 ? 'hidden' : ''}`}>
               {countries
                 .map((country) => ({
                   country,
@@ -516,17 +608,27 @@ export default function BracketPage() {
               {stadiums.map((stadium) => {
                 const countryColors = COUNTRY_COLORS;
                 const matchCount = getStadiumMatches(data, stadium.name).length;
+                const photo = photoFor(stadium.name, stadium.city)?.photos[0] ?? null;
 
                 return (
                   <Card
-                    key={stadium.name}
+                    key={`${stadium.name}|${stadium.city}`}
                     data-testid="stadium-card"
-                    className="bg-[#131A2E] border-[#1E293B] p-5 hover:border-[#D4AF37]/30 transition-all cursor-pointer group"
+                    className="bg-[#131A2E] border-[#1E293B] p-5 hover:border-[#D4AF37]/30 transition-all cursor-pointer group overflow-hidden"
                     onClick={() => setSelectedStadium(stadium)}
                   >
+                    {photo && (
+                      <img
+                        src={photo.url}
+                        alt={stadium.name}
+                        loading="lazy"
+                        data-testid="stadium-card-photo"
+                        className="-mx-5 -mt-5 mb-3 h-36 w-[calc(100%+2.5rem)] max-w-none object-cover"
+                      />
+                    )}
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-3xl">{stadium.image}</span>
-                      <Badge
+                      {photo ? <span /> : <span className="text-3xl">{stadium.image}</span>}
+                      {stadium.country && <Badge
                         variant="outline"
                         className="text-[10px] font-semibold"
                         style={{
@@ -538,7 +640,7 @@ export default function BracketPage() {
                         }}
                       >
                         {stadium.country}
-                      </Badge>
+                      </Badge>}
                     </div>
 
                     <h3 className="text-sm font-bold text-white group-hover:text-[#D4AF37] transition-colors">
@@ -550,15 +652,19 @@ export default function BracketPage() {
                     </div>
 
                     <div className="flex items-center justify-between mt-3 pt-3 border-t border-[#1E293B]">
-                      <div className="flex items-center gap-1">
-                        <Users className="w-3 h-3 text-[#94A3B8]" />
-                        <span className="text-xs text-[#94A3B8]">
-                          Capacidade:
-                        </span>
-                        <span className="text-xs font-bold text-white">
-                          {stadium.capacity.toLocaleString('pt-BR')}
-                        </span>
-                      </div>
+                      {stadium.capacity > 0 ? (
+                        <div className="flex items-center gap-1">
+                          <Users className="w-3 h-3 text-[#94A3B8]" />
+                          <span className="text-xs text-[#94A3B8]">
+                            Capacidade:
+                          </span>
+                          <span className="text-xs font-bold text-white">
+                            {stadium.capacity.toLocaleString('pt-BR')}
+                          </span>
+                        </div>
+                      ) : (
+                        <span />
+                      )}
                       <div className="flex items-center gap-1">
                         <Badge className="bg-[#D4AF37]/15 text-[#D4AF37] border-none text-[10px] font-semibold">
                           {matchCount} jogo{matchCount !== 1 ? 's' : ''}

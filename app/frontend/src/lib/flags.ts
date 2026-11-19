@@ -123,7 +123,9 @@ export const NEUTRAL_FLAG = '🏳️';
 
 /** Código de país da bandeira, ou `null` se o código da seleção for desconhecido. */
 export function flagCountry(code: string): string | null {
-  return ISO[code.toUpperCase()] ?? null;
+  // clubes: "<país>_<clube>" (ex.: BRA_FLAMENGORJ) usam a bandeira do país
+  const pais = code.includes('_') ? code.split('_')[0] : code;
+  return ISO[pais.toUpperCase()] ?? null;
 }
 
 /** Emoji da bandeira da seleção; bandeira neutra se o código for desconhecido. */

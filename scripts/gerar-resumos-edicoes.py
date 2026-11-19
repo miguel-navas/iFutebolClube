@@ -6,6 +6,7 @@ Uso: python scripts/gerar-resumos-edicoes.py [prefixo]   (ex.: copa, eurocopa, n
 import glob
 import json
 import os
+import re
 import sys
 from collections import defaultdict
 
@@ -22,7 +23,9 @@ def _vencedor(m, pasta):
     a, b = m['scoreA'], m['scoreB']
     if a is None or b is None:
         return None
-    if a == b:
+    if a == b and m.get('penaltiesA') is not None and m.get('penaltiesB') is not None and m['penaltiesA'] != m['penaltiesB']:
+        a, b = m['penaltiesA'], m['penaltiesB']
+    elif a == b:
         try:
             p = _carrega(os.path.join(pasta, 'matches', f"{m['id']}.json")).get('penalties')
         except OSError:
@@ -31,6 +34,30 @@ def _vencedor(m, pasta):
             return None
         a, b = p['a'], p['b']
     return (m['teamA'], m['teamB']) if a > b else (m['teamB'], m['teamA'])
+
+
+def _junta_ida_volta(jogos):
+    """Confrontos de ida e volta ('(ida)'/'(volta)' no fim da rodada) viram um jogo só, com placar agregado."""
+    ids = re.compile(r'\s*\((ida|volta)\)\s*$', re.I)
+    pares, saida = defaultdict(list), []
+    for m in jogos:
+        if ids.search(m['stage']):
+            pares[(ids.sub('', m['stage']), frozenset((m['teamA'], m['teamB'])))].append(m)
+        else:
+            saida.append(m)
+    for (rodada, _), lista in pares.items():
+        lista.sort(key=lambda m: (m['date'], m['id']))
+        ida, volta = lista[0], lista[-1]
+        if len(lista) < 2:
+            saida.append({**ida, 'stage': rodada})
+            continue
+        g = lambda m, t: m['scoreA'] if m['teamA'] == t else m['scoreB']  # noqa: E731
+        pen = lambda t: volta.get('penaltiesA') if volta['teamA'] == t else volta.get('penaltiesB')  # noqa: E731
+        saida.append({**volta, 'stage': rodada, 'teamA': ida['teamA'], 'teamB': ida['teamB'],
+                      'scoreA': g(ida, ida['teamA']) + g(volta, ida['teamA']),
+                      'scoreB': g(ida, ida['teamB']) + g(volta, ida['teamB']),
+                      'penaltiesA': pen(ida['teamA']), 'penaltiesB': pen(ida['teamB'])})
+    return saida
 
 
 def _final_em_grupo(matches):
@@ -52,9 +79,10 @@ def resumo(arquivo):
     jogos = [m for m in d['matches'] if m['scoreA'] is not None]
     if not jogos:
         return None
+    jogos = _junta_ida_volta(jogos)
     out = {'champion': None, 'runnerUp': None, 'third': None, 'fourth': None, 'semifinalists': []}
     finais = [m for m in jogos if m['stage'].lower().startswith('final') and 'grupo' not in m['stage'].lower()]
-    terc = [m for m in jogos if 'terceiro' in m['stage'].lower() or 'third' in m['stage'].lower()]
+    terc = [m for m in jogos if 'terceiro' in m['stage'].lower() or 'third' in m['stage'].lower() or 'bronze' in m['stage'].lower()]
     semis = [m for m in jogos if 'semi' in m['stage'].lower()]
     if finais:
         r = _vencedor(sorted(finais, key=lambda m: (m['date'], m['id']))[-1], pasta)
@@ -99,15 +127,14 @@ def resumo(arquivo):
 
 
 def main():
-    prefixos = sys.argv[1:] or ['copa', 'eurocopa', 'nations-league']
+    prefixos = sys.argv[1:] or ['copa', 'eurocopa', 'nations-league', 'libertadores']
     for p in prefixos:
         for arq in sorted(glob.glob(os.path.join(RAIZ, f'{p}-[0-9][0-9][0-9][0-9].json'))):
-            if not os.path.isdir(arq[:-5]):
-                continue
             r = resumo(arq)
             if r is None:
                 print('sem resumo:', os.path.basename(arq))
                 continue
+            os.makedirs(arq[:-5], exist_ok=True)
             with open(os.path.join(arq[:-5], 'summary.json'), 'w', encoding='utf-8') as f:
                 json.dump(r, f, ensure_ascii=False, indent=1)
             print(os.path.basename(arq), r['champion'], r['runnerUp'], r['third'], r['fourth'], [s['name'] + ' ' + str(s['goals']) for s in r.get('topScorers', [])], r['totalGoals'])

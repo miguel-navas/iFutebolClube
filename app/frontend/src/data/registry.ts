@@ -160,8 +160,8 @@ function copaAntiga(c: (typeof COPAS_ANTIGAS)[number], i: number): Edition {
     },
     finalVenue: null,
     sections: c.groups
-      ? ['overview', 'jogos', 'grupos', 'selecoes', 'eliminatorias']
-      : ['overview', 'jogos', 'selecoes', 'eliminatorias'],
+      ? ['overview', 'jogos', 'grupos', 'selecoes', 'eliminatorias', 'estadios']
+      : ['overview', 'jogos', 'selecoes', 'eliminatorias', 'estadios'],
     snapshot: true,
     data: emptyDataset(),
   };
@@ -246,10 +246,38 @@ function eurocopaEdition(year: number, number: number): Edition {
 
 const eurocopaEditions: Edition[] = EUROCOPA_ANOS.map((ano, i) => eurocopaEdition(ano, i + 1));
 
+// Copa Libertadores (2012 em diante), a partir do openfootball: só jogos e placares, sem elencos nem estádios.
+// A de 2026 está em andamento e pode estar incompleta.
+const LIBERTADORES_ANOS = Array.from({ length: 15 }, (_, i) => 2012 + i);
+
+function libertadoresEdition(year: number): Edition {
+  return {
+    competition: 'libertadores',
+    year: String(year),
+    label: `Libertadores ${year}`,
+    number: year - 2011,
+    hero: {
+      title: 'Copa Libertadores',
+      highlight: String(year),
+      description: `Jogos, grupos e fase eliminatória da Copa Libertadores da América de ${year}.`,
+      hosts: null,
+      footer: `⚽ Copa Libertadores ${year}`,
+      subtitle: `Copa Libertadores ${year}`,
+    },
+    finalVenue: null,
+    sections: ['overview', 'jogos', 'grupos', 'eliminatorias'],
+    snapshot: true,
+    data: emptyDataset(),
+  };
+}
+
+const libertadoresEditions: Edition[] = LIBERTADORES_ANOS.map(libertadoresEdition);
+
 const competitions: Competition[] = [
   { slug: 'copa', name: 'Copa do Mundo', editions: [...copasAntigas, worldCup2026] },
   { slug: 'eurocopa', name: 'Eurocopa', editions: eurocopaEditions },
   { slug: 'nations-league', name: 'UEFA Nations League', editions: [...NL_ANTIGAS.map(nationsLeagueAntiga), nationsLeague2027] },
+  { slug: 'libertadores', name: 'Copa Libertadores', editions: libertadoresEditions },
 ];
 
 export function listCompetitions(): Competition[] {

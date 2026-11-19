@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Home, Menu, PanelLeftClose, Trophy } from 'lucide-react';
 import { listAvailableEditions, listCompetitions } from '@/data/registry';
 import { editionPath } from '@/lib/editionPaths';
@@ -54,6 +54,10 @@ export default function SideMenu({ open, competition = '' }: { open: boolean; co
   // Clicar na competição que já está aberta recolhe as edições; ao trocar de competição volta a abrir.
   const [recolhida, setRecolhida] = useState(false);
   useEffect(() => setRecolhida(false), [competition]);
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  // edição aberta no momento (/<competição>/<ano>/...), para marcar no seletor
+  const anoAtual = competition ? pathname.match(new RegExp(`^/${competition}/(\\d{4})`))?.[1] ?? '' : '';
 
   return (
     <aside
@@ -112,25 +116,32 @@ export default function SideMenu({ open, competition = '' }: { open: boolean; co
                       {c.name}
                     </Link>
                     {aberta && (
-                      <ul className="mb-1 ml-3 mt-1 flex flex-col gap-0.5 border-l border-[#1E293B] pl-3">
+                      <div className="mb-1 ml-3 mt-1 border-l border-[#1E293B] pl-3">
                         {editions.length === 0 ? (
-                          <li className="px-2 py-1 text-xs text-[#94A3B8]" data-testid="menu-em-breve">
+                          <p className="px-2 py-1 text-xs text-[#94A3B8]" data-testid="menu-em-breve">
                             Em breve
-                          </li>
+                          </p>
                         ) : (
-                          editions.map((e) => (
-                            <li key={e.year}>
-                              <Link
-                                to={editionPath(e.competition, e.year)}
-                                data-testid={`edition-${e.year}`}
-                                className="block rounded-md px-2 py-1 text-sm text-white hover:bg-white/5 hover:text-[#D4AF37]"
-                              >
+                          <select
+                            aria-label={`Edição de ${c.name}`}
+                            data-testid="menu-edition-select"
+                            value={anoAtual}
+                            onChange={(ev) => {
+                              if (ev.target.value) navigate(editionPath(c.slug, ev.target.value));
+                            }}
+                            className="w-full cursor-pointer [color-scheme:dark] rounded-md border border-[#1E293B] bg-[#131A2E] px-2 py-1.5 text-sm text-white hover:border-[#D4AF37]/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#D4AF37]"
+                          >
+                            <option value="" disabled>
+                              Escolha a edição
+                            </option>
+                            {editions.map((e) => (
+                              <option key={e.year} value={e.year} data-testid={`edition-${e.year}`}>
                                 {e.label}
-                              </Link>
-                            </li>
-                          ))
+                              </option>
+                            ))}
+                          </select>
                         )}
-                      </ul>
+                      </div>
                     )}
                   </li>
                 );
