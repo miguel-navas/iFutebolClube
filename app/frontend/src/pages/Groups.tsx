@@ -15,6 +15,7 @@ export default function GroupsPage() {
   const { groups, getGroupStandings, getMatchesByGroup } = data;
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
 
+  const liga = edition.competition === "brasileirao";
   const displayGroups = selectedGroup ? [selectedGroup] : groups;
 
   return (
@@ -23,13 +24,13 @@ export default function GroupsPage() {
 
       <div className="w-full px-4 sm:px-6 lg:px-8 2xl:px-12 pt-24 pb-20">
         <div className="mb-8">
-          <h1 className="text-3xl font-extrabold text-white">Fase de Grupos</h1>
-          <p className="text-[#94A3B8] mt-1">{edition.competition === "copa" && edition.year === "2026" ? "12 grupos · 4 seleções por grupo · Os 2 primeiros avançam" : `${groups.length} grupos`}</p>
+          <h1 className="text-3xl font-extrabold text-white">{liga ? "Classificação" : "Fase de Grupos"}</h1>
+          <p className="text-[#94A3B8] mt-1">{edition.competition === "copa" && edition.year === "2026" ? "12 grupos · 4 seleções por grupo · Os 2 primeiros avançam" : liga ? "20 clubes · pontos corridos · todos jogam contra todos, ida e volta" : `${groups.length} grupos`}</p>
         </div>
         <EditionNotes section="grupos" />
 
         {/* Celular: filtro em lista */}
-        <div className="mb-6 md:hidden" data-testid="group-filter-mobile">
+        <div className={`mb-6 md:hidden ${liga ? "hidden" : ""}`} data-testid="group-filter-mobile">
           <FilterSelect
             label="Grupo"
             testId="filter-group"
@@ -40,7 +41,7 @@ export default function GroupsPage() {
         </div>
 
         {/* Group Filter */}
-        <div className="hidden md:flex flex-wrap gap-1.5 mb-8">
+        <div className={`${liga ? "hidden" : "hidden md:flex"} flex-wrap gap-1.5 mb-8`}>
           <button
             onClick={() => setSelectedGroup(null)}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
@@ -75,7 +76,7 @@ export default function GroupsPage() {
             return (
               <Card key={g} data-testid="group-card" className="bg-[#131A2E] border-[#1E293B] overflow-hidden">
                 <div className="px-5 py-4 border-b border-[#1E293B] flex items-center justify-between">
-                  <h3 className="text-lg font-bold text-[#D4AF37]">Grupo {g}</h3>
+                  <h3 className="text-lg font-bold text-[#D4AF37]">{liga ? "Série A" : `Grupo ${g}`}</h3>
                   <Badge variant="outline" className="text-[10px] border-[#1E293B] text-[#94A3B8]">
                     {groupMatches.length} jogos
                   </Badge>

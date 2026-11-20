@@ -34,7 +34,7 @@ if [ -d "$TMP/site/data" ]; then
   rsync -a --exclude 'editions/' --exclude 'stats/' "$TMP/site/data/" "$SITE/data/"
   if [ "$COM_DADOS" -eq 1 ]; then
     # A edição em andamento da Nations League é atualizada pelo cron da VM: não sobrescrever com a cópia do PC.
-    rsync -a --exclude 'editions/nations-league-2027*' "$TMP/site/data/" "$SITE/data/"
+    rsync -a --exclude 'editions/nations-league-2027*' --exclude 'editions/brasileirao-2026.json' "$TMP/site/data/" "$SITE/data/"
     echo "Dados do pacote copiados para $SITE/data"
   fi
 fi

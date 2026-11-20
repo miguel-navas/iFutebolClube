@@ -122,13 +122,13 @@ test.describe('mapa em tela cheia', () => {
 });
 
 test.describe('menu na tela inicial', () => {
-  test('tela inicial tem menu lateral com Início destacado e as quatro competições', async ({ page }) => {
+  test('tela inicial tem menu lateral com Início destacado e as cinco competições', async ({ page }) => {
     await page.setViewportSize({ width: 1400, height: 800 });
     await page.addInitScript(() => localStorage.removeItem('ifc:side-menu-open'));
     await page.goto('/');
     await expect(page.getByTestId('side-menu')).toBeVisible();
     await expect(page.getByTestId('menu-home')).toHaveAttribute('aria-current', 'page');
-    await expect(page.getByTestId(/^menu-competition-/)).toHaveCount(4);
+    await expect(page.getByTestId(/^menu-competition-/)).toHaveCount(5);
     await expect(page.getByTestId('competition-copa')).toBeVisible();
   });
 

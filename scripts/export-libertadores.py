@@ -79,7 +79,7 @@ def etapa(titulo: str) -> tuple[str, int | str | None]:
 
 def slug(txt: str) -> str:
     s = unicodedata.normalize("NFKD", txt).encode("ascii", "ignore").decode().upper()
-    return re.sub(r"[^A-Z0-9]+", "", s)[:16]
+    return re.sub(r"[^A-Z0-9]+", "", s)[:24]
 
 
 SIGLAS = {"CA", "CR", "SC", "EC", "SE", "CD", "CS", "CF", "CSD", "CDC", "CAR", "CSCYD", "FBC", "FC", "AD", "SD", "CP", "CC", "AA", "FR", "SP", "RJ", "PR", "MG", "RS", "BA"}
@@ -93,6 +93,36 @@ def limpa_nome(nome: str) -> str:
     while len(p) > 1 and p[-1].upper() in SIGLAS:
         p = p[:-1]
     return " ".join(p)
+
+# Nomes canônicos: variantes do mesmo clube (chave = slug do nome já sem siglas) -> nome de exibição.
+CANONICO = {
+    "Godoy Cruz Antonio Tomba": "Godoy Cruz", "Estudiantes de La Plata": "Estudiantes", "Talleres de Córdoba": "Talleres",
+    "San Lorenzo de Almagro": "San Lorenzo", "Colón de Santa Fe": "Colón", "Central Córdoba": "Central Córdoba",
+    "Club Always Ready": "Always Ready", "Club Aurora": "Aurora", "Club Bolívar": "Bolívar", "Club Nacional Potosí": "Nacional Potosí",
+    "Club San José": "San José", "Club The Strongest": "The Strongest",
+    "América": "América Mineiro", "Mineiro": "Atlético Mineiro", "Paranaense": "Athletico Paranaense",
+    "Fortaleza CE": "Fortaleza", "Grêmio FBPA": "Grêmio", "Grêmio Porto Alegre": "Grêmio", "Corinthians Paulista": "Corinthians",
+    "RB Bragantino": "Red Bull Bragantino",
+    "CDP Curicó Unido": "Curicó Unido", "Iquique": "Deportes Iquique",
+    "CDP Junior": "Junior", "Atlético Junior": "Junior", "Tolima": "Deportes Tolima", "Santa Fe": "Independiente Santa Fe",
+    "Bucaramanga": "Atlético Bucaramanga",
+    "Barcelona": "Barcelona SC", "Club Social y Deportivo Independiente José Terán": "Independiente del Valle",
+    "LDU de Quito": "LDU Quito", "Universidad Catolica": "Universidad Católica",
+    "Atlas Guadalajara": "Atlas", "Club León": "León", "Club Tijuana": "Tijuana", "Deportivo Guadalajara": "Chivas Guadalajara",
+    "Deportivo Toluca": "Toluca", "UANL Tigres": "Tigres UANL",
+    "Club Cerro Porteño": "Cerro Porteño", "Club Guaraní": "Guaraní", "Club Libertad Asuncion": "Libertad", "Club Nacional": "Nacional",
+    "Club Olimpia": "Olimpia", "Olimpia Asuncion": "Olimpia",
+    "Club Alianza Lima": "Alianza Lima", "Club Universitario de Deportes": "Universitario", "Universitario de Deportes": "Universitario",
+    "Cristal": "Sporting Cristal", "Universidad Cesar Vallejo": "Universidad César Vallejo",
+    "Club Nacional de Football": "Nacional", "Defensor": "Defensor Sporting", "Liverpool FC": "Liverpool",
+}
+
+
+def nome_exibicao(nome: str, pais: str) -> str:
+    """Nome limpo e padronizado do clube, com a sigla do país entre parênteses: "Boca Juniors (ARG)"."""
+    n = limpa_nome(nome)
+    n = CANONICO.get(n, n)
+    return f"{n} ({pais})"
 
 
 def interpreta(texto: str) -> list[dict]:
@@ -153,7 +183,7 @@ def monta(ano: int, jogos: list[dict]) -> dict:
     for j in jogos:
         for lado in ("a", "b"):
             nome, pais = j[lado]
-            codigo.setdefault((nome, pais), f"{pais}_{slug(nome)}")
+            codigo.setdefault((nome, pais), f"{pais}_{slug(nome_exibicao(nome, pais).rsplit(' (', 1)[0])}")
     # grupos: componentes conexos dos jogos de grupo; a letra vem do arquivo ("Gruppe X") quando houver,
     # senão segue a ordem de aparição entre as letras que sobraram
     pai: dict[str, str] = {}
@@ -211,7 +241,7 @@ def monta(ano: int, jogos: list[dict]) -> dict:
         })
     times = {}
     for (nome, pais), c in codigo.items():
-        times[c] = {"code": c, "name": limpa_nome(nome), "group": grupo_de.get(c, "")}
+        times[c] = {"code": c, "name": nome_exibicao(nome, pais), "group": grupo_de.get(c, "")}
     # classificação dos grupos
     tab: dict[str, dict[str, dict]] = {}
     for m in matches:

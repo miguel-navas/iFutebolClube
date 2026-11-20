@@ -6,8 +6,8 @@ import {
   getEdition,
 } from '../../src/data/registry';
 
-test('registro tem as quatro competições', () => {
-  expect(listCompetitions().map((c) => c.slug)).toEqual(['copa', 'eurocopa', 'nations-league', 'libertadores']);
+test('registro tem as cinco competições', () => {
+  expect(listCompetitions().map((c) => c.slug)).toEqual(['copa', 'eurocopa', 'nations-league', 'libertadores', 'brasileirao']);
   expect(getCompetition('copa')?.name).toBe('Copa do Mundo');
 });
 
@@ -29,6 +29,8 @@ test('Copa, Eurocopa e Nations League têm edições disponíveis', () => {
   expect(getEdition('eurocopa', '1960')?.sections).toContain('eliminatorias');
   expect(getEdition('nations-league', '2027')?.sections).toContain('eliminatorias');
   expect(listAvailableEditions('libertadores')).toHaveLength(15);
+  expect(listAvailableEditions('brasileirao').map((e) => e.year)).toEqual(['2026']);
+  expect(getEdition('brasileirao', '2026')?.sections).toEqual(['overview', 'jogos', 'grupos', 'selecoes']);
   expect(getEdition('libertadores', '2025')?.sections).toContain('grupos');
   expect(getEdition('libertadores', '2025')?.sections).not.toContain('jogadores');
   expect(listAvailableEditions('nations-league').map((e) => e.year)).toEqual(['2027', '2025', '2023', '2021', '2019']);

@@ -32,7 +32,8 @@ export default function HomePage() {
   };
   const cityCount = new Set(stadiums.map((st) => st.city)).size;
   const pendentes = matches.filter((m) => m.scoreA === null);
-  const upcomingMatches = (pendentes.length > 0 ? pendentes : matches).slice(0, 6);
+  const semPendentes = pendentes.length === 0;
+  const upcomingMatches = semPendentes ? matches.slice(-6) : pendentes.slice(0, 6);
   const featuredGroups = groups.slice(0, 4);
   const { isAlerted, toggleAlert } = useAlerts();
 
@@ -137,8 +138,8 @@ export default function HomePage() {
       <section className="w-full px-4 sm:px-6 lg:px-8 2xl:px-12 py-16">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-2xl font-extrabold text-white">Próximos Jogos</h2>
-            <p className="text-[#94A3B8] text-sm mt-1">{hero.subtitle}</p>
+            <h2 className="text-2xl font-extrabold text-white">{semPendentes ? "Últimos Jogos" : "Próximos Jogos"}</h2>
+            <p className="text-[#94A3B8] text-sm mt-1">{semPendentes ? "Resultados mais recentes" : hero.subtitle}</p>
           </div>
           <Link to={path("jogos")} className="flex items-center gap-1 text-[#D4AF37] text-sm font-semibold hover:underline">
             Ver todos <ArrowRight className="w-4 h-4" />

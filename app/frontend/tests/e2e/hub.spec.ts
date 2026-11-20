@@ -2,7 +2,7 @@ import { test, expect } from '../fixtures';
 
 test('hub mostra três competições', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByTestId(/^competition-/)).toHaveCount(4);
+  await expect(page.getByTestId(/^competition-/)).toHaveCount(5);
   await expect(page.getByTestId('competition-copa')).toContainText('23 edições');
   await expect(page.getByTestId('competition-eurocopa')).toContainText('17 edições');
   await expect(page.getByTestId('competition-nations-league')).toContainText('5 edições');

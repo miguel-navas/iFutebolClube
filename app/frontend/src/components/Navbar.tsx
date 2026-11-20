@@ -96,7 +96,7 @@ export default function Navbar() {
                   }`}
                 >
                   <Icon className="w-4 h-4" />
-                  {item.label}
+                  {item.section === 'grupos' && edition.competition === 'brasileirao' ? 'Classificação' : item.label}
                 </Link>
               );
             })}
@@ -270,7 +270,7 @@ export default function Navbar() {
                     }`}
                   >
                     <Icon className="w-4 h-4" />
-                    {item.label}
+                    {item.section === 'grupos' && edition.competition === 'brasileirao' ? 'Classificação' : item.label}
                   </Link>
                 );
               })}

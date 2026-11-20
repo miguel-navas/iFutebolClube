@@ -273,11 +273,36 @@ function libertadoresEdition(year: number): Edition {
 
 const libertadoresEditions: Edition[] = LIBERTADORES_ANOS.map(libertadoresEdition);
 
+// Campeonato Brasileiro Série A (pontos corridos), a partir do openfootball: tabela completa, só placares.
+function brasileiraoEdition(year: number): Edition {
+  return {
+    competition: 'brasileirao',
+    year: String(year),
+    label: `Brasileirão ${year}`,
+    number: year - 1970,
+    hero: {
+      title: 'Brasileirão Série A',
+      highlight: String(year),
+      description: `Jogos, classificação e clubes do Campeonato Brasileiro Série A de ${year}.`,
+      hosts: null,
+      footer: `⚽ Brasileirão Série A ${year}`,
+      subtitle: `Campeonato Brasileiro ${year}`,
+    },
+    finalVenue: null,
+    sections: ['overview', 'jogos', 'grupos', 'selecoes'],
+    snapshot: true,
+    data: emptyDataset(),
+  };
+}
+
+const brasileiraoEditions: Edition[] = [2026].map(brasileiraoEdition);
+
 const competitions: Competition[] = [
   { slug: 'copa', name: 'Copa do Mundo', editions: [...copasAntigas, worldCup2026] },
   { slug: 'eurocopa', name: 'Eurocopa', editions: eurocopaEditions },
   { slug: 'nations-league', name: 'UEFA Nations League', editions: [...NL_ANTIGAS.map(nationsLeagueAntiga), nationsLeague2027] },
   { slug: 'libertadores', name: 'Copa Libertadores', editions: libertadoresEditions },
+  { slug: 'brasileirao', name: 'Brasileirão Série A', editions: brasileiraoEditions },
 ];
 
 export function listCompetitions(): Competition[] {

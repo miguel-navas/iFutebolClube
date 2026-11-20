@@ -10,6 +10,8 @@ export default function Flag({
   name?: string;
   className?: string;
 }) {
+  // clubes (ex.: ARG_BOCAJUNIORS): sem bandeira, o país vem entre parênteses no nome
+  if (code.includes('_')) return null;
   const url = flagUrl(code);
   if (!url) {
     return (
