@@ -112,7 +112,8 @@ def monta_detalhe(fs: dict) -> dict:
 
 
 def main() -> int:
-    ano = int(sys.argv[1]) if len(sys.argv) > 1 else 2026
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    ano = int(args[0]) if args else 2026
     snap = json.loads((EDITIONS / f"brasileirao-{ano}.json").read_text(encoding="utf-8"))
     por_par = {(m["teamA"], m["teamB"]): m for m in snap["matches"]}
     entrada = RAIZ / "data" / "uol-brasileirao" / str(ano)
